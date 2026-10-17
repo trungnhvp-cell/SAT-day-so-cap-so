@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAT Math — Sequences & Series | Thầy Nguyễn Hữu Trung</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\\\(',right:'\\\\)',display:false},{left:'\\\\[',right:'\\\\]',display:true}]});"></script>
+<style>
+  :root{
+    --sat-blue:#1B3A6B;--sat-blue-light:#2C5AA0;--sat-blue-pale:#EAF0F9;
+    --sat-green:#4CAF50;--sat-red:#E53935;--sat-yellow:#F5B400;
+    --sat-bg:#F5F7FA;--sat-text:#1a2332;--sat-gray:#5b6778;--sat-gold:#F5B400;
+    --shadow:0 2px 8px rgba(27,58,107,.08);
+    --shadow-lg:0 6px 24px rgba(27,58,107,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter','Segoe UI',Roboto,-apple-system,sans-serif;background:var(--sat-bg);color:var(--sat-text);line-height:1.6;}
+  header{background:linear-gradient(135deg,var(--sat-blue) 0%,var(--sat-blue-light) 100%);color:#fff;padding:20px 32px;box-shadow:var(--shadow-lg);position:sticky;top:0;z-index:100;}
+  .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand-logo{width:44px;height:44px;border-radius:10px;background:#fff;color:var(--sat-blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;letter-spacing:-1px;}
+  .brand-title{font-size:20px;font-weight:700;letter-spacing:.2px}
+  .brand-sub{font-size:12.5px;opacity:.85;font-weight:400}
+  .header-credit{font-size:12.5px;text-align:right;line-height:1.5;background:rgba(255,255,255,.12);padding:8px 16px;border-radius:10px;border-left:3px solid var(--sat-gold);}
+  .header-credit strong{color:var(--sat-gold);font-weight:800}
+  nav{background:#fff;border-bottom:1px solid #e2e8f0;position:sticky;top:84px;z-index:99;overflow-x:auto}
+  .nav-inner{max-width:1200px;margin:0 auto;display:flex;padding:0 16px;gap:4px}
+  .nav-btn{background:none;border:none;padding:16px 20px;font-family:inherit;font-size:14.5px;font-weight:600;color:var(--sat-gray);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s;}
+  .nav-btn:hover{color:var(--sat-blue);background:var(--sat-blue-pale)}
+  .nav-btn.active{color:var(--sat-blue);border-bottom-color:var(--sat-blue);background:var(--sat-blue-pale)}
+  main{max-width:1200px;margin:0 auto;padding:32px 20px 80px}
+  .section{display:none;animation:fade .35s ease}
+  .section.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .page-title{font-size:28px;font-weight:800;color:var(--sat-blue);margin-bottom:6px}
+  .page-subtitle{color:var(--sat-gray);margin-bottom:28px;font-size:15px}
+  .card{background:#fff;border-radius:14px;padding:26px 28px;box-shadow:var(--shadow);margin-bottom:20px;border:1px solid #eef2f8;}
+  .card h3{font-size:20px;color:var(--sat-blue);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--sat-blue-pale);display:flex;align-items:center;gap:10px;}
+  .card h3 .num{background:var(--sat-blue);color:#fff;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;}
+  .card h4{font-size:16px;color:var(--sat-blue-light);margin:16px 0 8px}
+  .card p,.card li{margin-bottom:8px}
+  .card ul,.card ol{padding-left:24px}
+  .card ol li,.card ul li{margin-bottom:6px}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14.5px}
+  th,td{padding:12px 14px;text-align:left;border-bottom:1px solid #eef2f8;vertical-align:top}
+  th{background:var(--sat-blue-pale);color:var(--sat-blue);font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.5px}
+  tr:hover td{background:#fafcff}
+  .formula-box{background:linear-gradient(135deg,#f0f5ff 0%,#e6efff 100%);border-left:4px solid var(--sat-blue);border-radius:10px;padding:14px 18px;margin:12px 0;font-size:15.5px;}
+  .formula-box strong{color:var(--sat-blue);font-weight:800}
+  .vocab-search{width:100%;padding:12px 16px;border:2px solid #e2e8f0;border-radius:10px;font-family:inherit;font-size:15px;margin-bottom:16px;}
+  .vocab-search:focus{outline:none;border-color:var(--sat-blue-light)}
+  .vocab-table td:nth-child(2){font-family:'Courier New',monospace;color:var(--sat-blue);font-weight:600}
+  .speak-btn{background:none;border:none;cursor:pointer;color:var(--sat-blue);padding:4px 8px;border-radius:6px;transition:background .2s;font-size:15px;}
+  .speak-btn:hover{background:var(--sat-blue-pale)}
+  .group-tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+  .group-tab{padding:12px 22px;border-radius:10px;border:2px solid #e2e8f0;background:#fff;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;color:var(--sat-gray);transition:all .2s;}
+  .group-tab:hover{border-color:var(--sat-blue-light)}
+  .group-tab.active{background:var(--sat-blue);color:#fff;border-color:var(--sat-blue)}
+  .group-tab .badge{display:inline-block;margin-left:6px;background:rgba(255,255,255,.25);padding:1px 8px;border-radius:8px;font-size:12px}
+  .group-tab:not(.active) .badge{background:var(--sat-blue-pale);color:var(--sat-blue)}
+  .group-panel{display:none}
+  .group-panel.active{display:block}
+  .q-card{background:#fff;border-radius:14px;padding:24px 26px;box-shadow:var(--shadow);margin-bottom:18px;border-left:5px solid var(--sat-blue-light);transition:border-color .3s;}
+  .q-card.correct{border-left-color:var(--sat-green)}
+  .q-card.wrong{border-left-color:var(--sat-red)}
+  .q-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .q-num{background:var(--sat-blue);color:#fff;min-width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0;}
+  .q-card.correct .q-num{background:var(--sat-green)}
+  .q-card.wrong .q-num{background:var(--sat-red)}
+  .q-text{font-size:16px;font-weight:500;flex:1}
+  .options{display:grid;gap:10px;margin-top:16px}
+  .option{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;border:2px solid #e2e8f0;border-radius:10px;background:#fff;cursor:pointer;transition:all .18s;font-family:inherit;font-size:15px;text-align:left;color:var(--sat-text);width:100%;}
+  .option:hover:not(.disabled){border-color:var(--sat-blue-light);background:#fafcff;transform:translateX(2px)}
+  .option .letter{background:var(--sat-blue-pale);color:var(--sat-blue);width:28px;height:28px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;}
+  .option.correct{border-color:var(--sat-green);background:#eaf7eb}
+  .option.correct .letter{background:var(--sat-green);color:#fff}
+  .option.wrong{border-color:var(--sat-red);background:#fdeaea}
+  .option.wrong .letter{background:var(--sat-red);color:#fff}
+  .option.disabled{cursor:default}
+  .option.disabled:hover{transform:none;background:inherit}
+  .option.selected{border-color:var(--sat-blue);background:#eaf0f9}
+  .option.selected .letter{background:var(--sat-blue);color:#fff}
+  .feedback{margin-top:14px;padding:14px 18px;border-radius:10px;font-size:14.5px;display:none;animation:slideIn .3s ease}
+  @keyframes slideIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  .feedback.show{display:block}
+  .feedback.ok{background:#eaf7eb;border-left:4px solid var(--sat-green);color:#1f6b24}
+  .feedback.no{background:#fdeaea;border-left:4px solid var(--sat-red);color:#8b1c1c}
+  .feedback strong{display:block;margin-bottom:6px;font-size:15px}
+  .feedback .review{margin-top:8px;padding-top:8px;border-top:1px dashed rgba(0,0,0,.12);font-size:13.5px;color:var(--sat-blue);font-weight:600;}
+  .sat-hero{background:linear-gradient(135deg,var(--sat-blue) 0%,var(--sat-blue-light) 100%);color:#fff;border-radius:16px;padding:32px 36px;margin-bottom:24px;box-shadow:var(--shadow-lg);}
+  .sat-hero h2{font-size:24px;margin-bottom:8px;font-weight:800}
+  .sat-hero p{opacity:.9;font-size:14.5px;max-width:760px}
+  .sat-info-row{display:flex;gap:24px;margin-top:18px;flex-wrap:wrap}
+  .sat-info{background:rgba(255,255,255,.13);padding:10px 18px;border-radius:10px;font-size:13.5px}
+  .sat-info strong{font-size:17px;display:block;font-weight:800}
+  .btn{padding:11px 24px;border-radius:10px;border:none;font-family:inherit;font-size:14.5px;font-weight:700;cursor:pointer;transition:all .2s;letter-spacing:.3px;}
+  .btn-primary{background:var(--sat-blue);color:#fff}
+  .btn-primary:hover{background:var(--sat-blue-light);transform:translateY(-1px);box-shadow:var(--shadow-lg)}
+  .btn-primary:disabled{background:#b8c4d6;cursor:not-allowed;transform:none;box-shadow:none}
+  .btn-outline{background:#fff;color:var(--sat-blue);border:2px solid var(--sat-blue)}
+  .btn-outline:hover{background:var(--sat-blue-pale)}
+  .btn-sm{padding:7px 14px;font-size:12.5px;border-radius:8px}
+  .home-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:24px}
+  .home-card{background:#fff;border-radius:14px;padding:24px;box-shadow:var(--shadow);cursor:pointer;transition:all .25s;border:2px solid transparent;}
+  .home-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--sat-blue-light)}
+  .home-card .icon{font-size:32px;margin-bottom:10px}
+  .home-card h4{font-size:16px;color:var(--sat-blue);margin-bottom:6px}
+  .home-card p{font-size:13.5px;color:var(--sat-gray)}
+  .hero{background:linear-gradient(135deg,var(--sat-blue) 0%,var(--sat-blue-light) 100%);color:#fff;border-radius:16px;padding:36px 40px;margin-bottom:28px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(245,180,0,.12);}
+  .hero h1{font-size:30px;font-weight:800;margin-bottom:10px}
+  .hero p{opacity:.92;font-size:15.5px;max-width:760px;position:relative}
+  .hero-author{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.2);display:inline-flex;align-items:center;gap:14px;font-size:13.5px;position:relative;}
+  .hero-author .avatar{width:44px;height:44px;border-radius:50%;background:var(--sat-gold);color:var(--sat-blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex-shrink:0;}
+  .hero-author strong{color:var(--sat-gold);font-weight:800;font-size:14.5px;display:block}
+  .hero-author span{opacity:.9}
+  footer{background:linear-gradient(135deg,#0f2547 0%,var(--sat-blue) 100%);color:#fff;padding:36px 32px 24px;margin-top:40px;}
+  .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px}
+  .footer-col h4{color:var(--sat-gold);font-size:14px;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;font-weight:800}
+  .footer-col p,.footer-col li{font-size:13.5px;opacity:.88;line-height:1.8}
+  .footer-col ul{list-style:none}
+  .footer-col ul li{cursor:pointer;transition:color .2s}
+  .footer-col ul li:hover{color:var(--sat-gold)}
+  .footer-author-card{background:rgba(255,255,255,.08);border-left:4px solid var(--sat-gold);padding:16px 20px;border-radius:10px;margin-top:8px;}
+  .footer-author-card .name{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px}
+  .footer-author-card .role{font-size:13px;color:var(--sat-gold);font-weight:600;margin-bottom:8px}
+  .footer-author-card .phone{font-size:14px;font-weight:700;color:#fff;display:inline-flex;align-items:center;gap:6px;background:rgba(245,180,0,.2);padding:6px 12px;border-radius:8px;}
+  .footer-bottom{max-width:1200px;margin:32px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);text-align:center;font-size:12.5px;opacity:.75;line-height:1.8;}
+  .footer-bottom strong{color:var(--sat-gold);font-weight:800}
+
+  /* ============ SAT SIMULATION ============ */
+  .sat-set-selector{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-bottom:24px}
+  .set-card{background:#fff;border-radius:14px;padding:24px;box-shadow:var(--shadow);cursor:pointer;transition:all .25s;border:2px solid transparent;border-top:5px solid var(--sat-blue);position:relative;}
+  .set-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--sat-blue-light);border-top-color:var(--sat-gold)}
+  .set-card .set-badge{display:inline-block;background:var(--sat-blue-pale);color:var(--sat-blue);padding:4px 12px;border-radius:8px;font-size:12px;font-weight:800;letter-spacing:.5px;margin-bottom:10px;}
+  .set-card h4{font-size:18px;color:var(--sat-blue);margin-bottom:8px}
+  .set-card p{font-size:13.5px;color:var(--sat-gray);margin-bottom:14px;min-height:52px}
+  .set-card .set-meta{display:flex;gap:14px;font-size:12.5px;color:var(--sat-gray);border-top:1px dashed #e2e8f0;padding-top:12px;flex-wrap:wrap}
+  .set-card .set-meta strong{color:var(--sat-blue);font-weight:800}
+  .set-card .set-start{margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-weight:800;color:var(--sat-blue);font-size:14px;}
+
+  .test-topbar{background:#fff;border-radius:14px;padding:16px 22px;box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:18px;border:1px solid #eef2f8;position:sticky;top:140px;z-index:50;}
+  .test-set-name{font-size:16px;font-weight:800;color:var(--sat-blue)}
+  .test-progress{font-size:13px;color:var(--sat-gray);margin-top:2px}
+  .timer-wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .timer{font-family:'Courier New',monospace;font-size:24px;font-weight:800;background:var(--sat-blue);color:#fff;padding:8px 18px;border-radius:10px;letter-spacing:2px;min-width:110px;text-align:center;transition:background .3s;}
+  .timer.warning{background:var(--sat-yellow);animation:pulse .8s infinite}
+  .timer.danger{background:var(--sat-red);animation:pulse .5s infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+  .test-layout{display:grid;grid-template-columns:230px 1fr;gap:18px;align-items:start}
+  .test-sidebar{background:#fff;border-radius:14px;padding:18px;box-shadow:var(--shadow);border:1px solid #eef2f8;position:sticky;top:220px;}
+  .test-sidebar h4{font-size:12.5px;color:var(--sat-blue);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--sat-blue-pale);}
+  .nav-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+  .nav-cell{aspect-ratio:1;border-radius:8px;border:2px solid #e2e8f0;background:#fff;font-family:inherit;font-weight:700;font-size:12.5px;color:var(--sat-gray);cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;padding:0;}
+  .nav-cell:hover{border-color:var(--sat-blue-light)}
+  .nav-cell.answered{background:var(--sat-blue);color:#fff;border-color:var(--sat-blue)}
+  .nav-cell.current{border-color:var(--sat-gold);box-shadow:0 0 0 3px rgba(245,180,0,.3)}
+  .nav-legend{margin-top:14px;font-size:12px;color:var(--sat-gray);display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px dashed #e2e8f0}
+  .nav-legend > div{display:flex;align-items:center;gap:8px}
+  .legend-box{width:14px;height:14px;border-radius:4px;border:2px solid #e2e8f0;background:#fff;display:inline-block}
+  .legend-box.answered{background:var(--sat-blue);border-color:var(--sat-blue)}
+  .legend-box.current{border-color:var(--sat-gold);box-shadow:0 0 0 2px rgba(245,180,0,.3)}
+  .test-main{min-width:0}
+  .test-main .q-card{margin-bottom:14px}
+  .test-nav-btns{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .test-nav-btns .btn{min-width:140px}
+
+  /* ============ RESULT ENHANCED ============ */
+  .result-hero{background:linear-gradient(135deg,var(--sat-blue) 0%,var(--sat-blue-light) 100%);color:#fff;border-radius:16px;padding:32px 36px;margin-bottom:22px;box-shadow:var(--shadow-lg);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;}
+  .result-hero h2{font-size:22px;margin-bottom:6px}
+  .result-hero p{opacity:.9;font-size:14px}
+  .result-score{text-align:center;background:rgba(255,255,255,.14);padding:18px 30px;border-radius:14px;border:2px solid rgba(245,180,0,.5);}
+  .result-score .num{font-size:42px;font-weight:800;color:var(--sat-gold);line-height:1}
+  .result-score .den{font-size:16px;opacity:.85;margin-top:4px}
+  .result-score .pct{font-size:14px;font-weight:700;margin-top:8px;padding:4px 12px;background:rgba(255,255,255,.2);border-radius:8px;display:inline-block}
+
+  .level-banner{background:#fff;border-radius:14px;padding:22px 26px;box-shadow:var(--shadow);border-left:6px solid var(--sat-blue);display:flex;gap:20px;align-items:flex-start;margin-bottom:22px;}
+  .level-icon{width:64px;height:64px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:34px;flex-shrink:0;color:#fff;}
+  .level-content{flex:1;min-width:0}
+  .level-content h3{font-size:22px;margin-bottom:8px;font-weight:800;letter-spacing:.3px}
+  .level-content p{font-size:14.5px;color:var(--sat-text);margin-bottom:6px;line-height:1.65}
+  .level-content .level-advice{background:var(--sat-blue-pale);padding:12px 16px;border-radius:8px;margin-top:10px;font-size:14px;border-left:3px solid var(--sat-blue);line-height:1.65;}
+
+  .result-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:22px}
+  .stat-box{background:#fff;border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);border-left:4px solid var(--sat-blue);}
+  .stat-box.green{border-left-color:var(--sat-green)}
+  .stat-box.red{border-left-color:var(--sat-red)}
+  .stat-box.yellow{border-left-color:var(--sat-yellow)}
+  .stat-box .label{font-size:11.5px;color:var(--sat-gray);text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+  .stat-box .value{font-size:26px;font-weight:800;color:var(--sat-blue);margin-top:4px;line-height:1.1}
+  .stat-box.green .value{color:var(--sat-green)}
+  .stat-box.red .value{color:var(--sat-red)}
+  .stat-box.yellow .value{color:#b8860b}
+  .stat-box .sub{font-size:12.5px;color:var(--sat-gray);margin-top:4px}
+
+  .result-section-title{font-size:18px;font-weight:800;color:var(--sat-blue);margin:28px 0 14px;display:flex;align-items:center;gap:10px;}
+  .result-section-title .icon{background:var(--sat-blue-pale);color:var(--sat-blue);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+
+  .time-analysis{background:#fff;border-radius:14px;padding:22px 26px;box-shadow:var(--shadow);margin-bottom:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;border:1px solid #eef2f8;}
+  .time-block{display:flex;gap:14px;align-items:flex-start}
+  .time-block .tb-icon{width:46px;height:46px;border-radius:11px;background:var(--sat-blue-pale);color:var(--sat-blue);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+  .time-block .tb-content{flex:1;min-width:0}
+  .time-block .tb-label{font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--sat-gray);font-weight:700;margin-bottom:4px;}
+  .time-block .tb-value{font-size:22px;font-weight:800;color:var(--sat-blue);line-height:1.1;}
+  .time-block .tb-desc{font-size:12.5px;color:var(--sat-gray);margin-top:4px;line-height:1.5;}
+
+  .topic-table{width:100%;border-collapse:collapse;font-size:14px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+  .topic-table th,.topic-table td{padding:12px 16px;text-align:left;border-bottom:1px solid #eef2f8;vertical-align:middle}
+  .topic-table th{background:var(--sat-blue-pale);color:var(--sat-blue);font-size:12px;text-transform:uppercase;letter-spacing:.5px;font-weight:800}
+  .topic-table tr:last-child td{border-bottom:none}
+  .topic-bar{height:9px;background:#e2e8f0;border-radius:5px;overflow:hidden;min-width:100px;flex:1}
+  .topic-bar-cell{display:flex;align-items:center;gap:10px}
+  .topic-bar-fill{height:100%;background:var(--sat-green);transition:width .8s ease;border-radius:5px}
+  .topic-bar-fill.warn{background:var(--sat-yellow)}
+  .topic-bar-fill.bad{background:var(--sat-red)}
+  .topic-score{font-weight:800;color:var(--sat-blue);min-width:44px;text-align:right}
+  .topic-recommend{font-size:12.5px;color:var(--sat-gray);margin-top:6px;padding:8px 12px;background:#fafcff;border-radius:6px;border-left:2px solid var(--sat-blue-light);line-height:1.5;font-style:italic;}
+
+  .roadmap{background:#fff;border-radius:14px;padding:26px 28px;box-shadow:var(--shadow);border-left:6px solid var(--sat-gold);margin-bottom:22px;}
+  .roadmap h3{font-size:19px;color:var(--sat-blue);margin-bottom:6px;display:flex;align-items:center;gap:10px;}
+  .roadmap .roadmap-sub{font-size:13.5px;color:var(--sat-gray);margin-bottom:18px;line-height:1.6;}
+  .roadmap-phase{padding:18px 0;border-bottom:1px dashed #e2e8f0;display:flex;gap:18px;align-items:flex-start;}
+  .roadmap-phase:last-child{border-bottom:none;padding-bottom:0}
+  .roadmap-phase .phase-num{width:48px;height:48px;border-radius:12px;background:var(--sat-blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;flex-shrink:0;}
+  .roadmap-phase.phase-1 .phase-num{background:var(--sat-red)}
+  .roadmap-phase.phase-2 .phase-num{background:#E8A317}
+  .roadmap-phase.phase-3 .phase-num{background:var(--sat-green)}
+  .roadmap-phase .phase-content{flex:1;min-width:0}
+  .roadmap-phase h4{font-size:15.5px;color:var(--sat-blue);margin-bottom:8px;font-weight:800;display:flex;align-items:center;flex-wrap:wrap;gap:8px;}
+  .roadmap-phase .phase-time{display:inline-block;background:var(--sat-blue-pale);color:var(--sat-blue);font-size:11.5px;font-weight:700;padding:2px 10px;border-radius:6px;}
+  .roadmap-phase ul{padding-left:22px;margin-top:6px}
+  .roadmap-phase li{font-size:13.5px;margin-bottom:6px;color:var(--sat-text);line-height:1.6}
+  .roadmap-phase .phase-actions{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+
+  .wrong-item{background:#fff;border-radius:12px;padding:20px 22px;box-shadow:var(--shadow);margin-bottom:14px;border-left:5px solid var(--sat-red);}
+  .wrong-item.unanswered{border-left-color:var(--sat-gray)}
+  .wrong-item .wrong-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
+  .wrong-item .wrong-num{background:var(--sat-red);color:#fff;min-width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;}
+  .wrong-item.unanswered .wrong-num{background:var(--sat-gray)}
+  .wrong-item .wrong-q{font-size:15px;font-weight:600;flex:1;line-height:1.55}
+  .wrong-item .topic-tag{display:inline-block;background:var(--sat-blue-pale);color:var(--sat-blue);font-size:11.5px;padding:2px 10px;border-radius:6px;font-weight:700;margin-top:6px;}
+  .wrong-item .ans-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0;font-size:14px}
+  .wrong-item .ans-box{padding:10px 14px;border-radius:8px;background:#f5f7fa;border-left:3px solid var(--sat-gray);}
+  .wrong-item .ans-box.your{background:#fdeaea;border-left-color:var(--sat-red)}
+  .wrong-item .ans-box.correct{background:#eaf7eb;border-left-color:var(--sat-green)}
+  .wrong-item .ans-box .lbl{font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--sat-gray);font-weight:700;margin-bottom:4px}
+  .wrong-item .ans-box .val{font-weight:600;color:var(--sat-text)}
+  .wrong-item .exp-box{background:var(--sat-blue-pale);padding:12px 16px;border-radius:8px;font-size:14px;border-left:3px solid var(--sat-blue);margin-top:10px;line-height:1.7}
+  .wrong-item .exp-box .lbl{font-weight:800;color:var(--sat-blue);margin-bottom:4px;font-size:13px}
+  .wrong-item .review-box{margin-top:10px;font-size:13.5px;color:var(--sat-blue);font-weight:600;padding:10px 14px;background:#fafcff;border-radius:8px;border:1px dashed var(--sat-blue-light);}
+  .result-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+
+  /* ============ NEW: PRIORITY STUDY PLAN ============ */
+  .priority-plan{margin-bottom:22px}
+  .priority-intro{font-size:14px;color:var(--sat-text);margin-bottom:16px;padding:14px 18px;background:linear-gradient(135deg,#fff9e6 0%,#fff3cd 100%);border-radius:10px;border-left:4px solid var(--sat-yellow);line-height:1.7}
+  .priority-card{background:#fff;border-radius:14px;padding:20px 24px;box-shadow:var(--shadow);margin-bottom:14px;border-left:5px solid var(--sat-yellow);transition:box-shadow .2s}
+  .priority-card:hover{box-shadow:var(--shadow-lg)}
+  .priority-card.high{border-left-color:var(--sat-red)}
+  .priority-card.medium{border-left-color:var(--sat-yellow)}
+  .priority-card.low{border-left-color:var(--sat-blue-light)}
+  .priority-header{display:flex;gap:14px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+  .priority-rank{width:42px;height:42px;border-radius:10px;background:var(--sat-blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;flex-shrink:0}
+  .priority-card.high .priority-rank{background:var(--sat-red)}
+  .priority-card.medium .priority-rank{background:#E8A317}
+  .priority-info{flex:1;min-width:0}
+  .priority-name{font-size:16.5px;font-weight:800;color:var(--sat-blue);margin-bottom:2px}
+  .priority-meta{font-size:13px;color:var(--sat-gray)}
+  .priority-badge{padding:4px 12px;border-radius:8px;font-size:12px;font-weight:800;white-space:nowrap}
+  .priority-card.high .priority-badge{background:#fdeaea;color:var(--sat-red)}
+  .priority-card.medium .priority-badge{background:#fff3cd;color:#b8860b}
+  .priority-card.low .priority-badge{background:#eaf7eb;color:#2e7d32}
+  .priority-recommend{background:var(--sat-blue-pale);padding:12px 16px;border-radius:8px;font-size:13.5px;line-height:1.6;border-left:3px solid var(--sat-blue);margin-bottom:12px}
+  .priority-steps{margin:0 0 12px;padding-left:22px;font-size:13.5px;line-height:1.7}
+  .priority-steps li{margin-bottom:4px}
+  .priority-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+  /* ============ NOTIFICATION MODAL — KẾT QUẢ SAU KHI NỘP ============ */
+  .notify-overlay{position:fixed;inset:0;background:rgba(15,37,71,.65);backdrop-filter:blur(4px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;animation:notifyFade .3s ease}
+  @keyframes notifyFade{from{opacity:0}to{opacity:1}}
+  .notify-modal{background:#fff;border-radius:20px;max-width:580px;width:100%;max-height:92vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.35);animation:notifySlide .4s cubic-bezier(.2,.9,.3,1.2)}
+  @keyframes notifySlide{from{opacity:0;transform:translateY(40px) scale(.95)}to{opacity:1;transform:none}}
+  .notify-head{background:linear-gradient(135deg,var(--sat-blue) 0%,var(--sat-blue-light) 100%);color:#fff;padding:26px 28px 22px;border-radius:20px 20px 0 0;text-align:center;position:relative;overflow:hidden}
+  .notify-head::before{content:'';position:absolute;top:-40px;right:-40px;width:140px;height:140px;border-radius:50%;background:rgba(245,180,0,.15)}
+  .notify-head .notify-icon{font-size:52px;margin-bottom:6px;position:relative;animation:notifyPop .5s .2s both}
+  @keyframes notifyPop{0%{transform:scale(0)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+  .notify-head h2{font-size:21px;font-weight:800;margin-bottom:4px;position:relative}
+  .notify-head p{font-size:13.5px;opacity:.88;position:relative}
+  .notify-body{padding:22px 28px 6px}
+  .notify-score{text-align:center;margin-bottom:18px;padding:18px;background:linear-gradient(135deg,#f0f5ff,#e6efff);border-radius:14px;border:1px solid #dbe6f4}
+  .notify-score .big{font-size:46px;font-weight:800;color:var(--sat-blue);line-height:1;letter-spacing:-1px}
+  .notify-score .lbl{font-size:12px;color:var(--sat-gray);margin-top:6px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+  .notify-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+  .notify-stat{text-align:center;padding:12px 8px;border-radius:10px;background:#f5f7fa;border:1px solid #eef2f8}
+  .notify-stat.green{background:#eaf7eb;border-color:#c8e6c9}
+  .notify-stat.red{background:#fdeaea;border-color:#f8c9c9}
+  .notify-stat .num{font-size:26px;font-weight:800;line-height:1}
+  .notify-stat.green .num{color:var(--sat-green)}
+  .notify-stat.red .num{color:var(--sat-red)}
+  .notify-stat .lbl{font-size:11px;color:var(--sat-gray);margin-top:4px;text-transform:uppercase;font-weight:700;letter-spacing:.5px}
+  .notify-section{margin-bottom:16px}
+  .notify-section h4{font-size:14px;color:var(--sat-blue);margin-bottom:10px;display:flex;align-items:center;gap:6px;font-weight:800}
+  .notify-section ul{list-style:none;padding:0;margin:0}
+  .notify-section li{font-size:13px;padding:9px 13px;background:#fafcff;border-radius:8px;margin-bottom:6px;border-left:3px solid var(--sat-blue);line-height:1.5}
+  .notify-section li.err{border-left-color:var(--sat-red);background:#fef5f5}
+  .notify-section li .rec{display:block;color:var(--sat-gray);font-size:12.5px;margin-top:4px;font-style:italic}
+  .notify-actions{display:flex;gap:10px;flex-wrap:wrap;padding:8px 28px 22px}
+  .notify-actions .btn{flex:1;min-width:140px;justify-content:center}
+
+  @media(max-width:900px){
+    .test-layout{grid-template-columns:1fr}
+    .test-sidebar{position:static}
+    .nav-grid{grid-template-columns:repeat(10,1fr)}
+    .result-hero{grid-template-columns:1fr}
+  }
+  @media(max-width:640px){
+    header{padding:14px 16px}
+    .brand-title{font-size:16px}
+    .header-credit{font-size:11.5px;padding:6px 12px;text-align:left}
+    .nav-btn{padding:14px 12px;font-size:13px}
+    main{padding:20px 12px 60px}
+    .card{padding:20px 18px}
+    .sat-hero{padding:24px 20px}
+    .timer{font-size:20px;padding:6px 14px;min-width:90px}
+    .hero{padding:26px 22px}
+    .hero h1{font-size:22px}
+    .page-title{font-size:22px}
+    .footer-inner{grid-template-columns:1fr;gap:24px}
+    footer{padding:28px 18px 20px}
+    .nav-grid{grid-template-columns:repeat(6,1fr)}
+    .wrong-item .ans-row{grid-template-columns:1fr}
+    .result-score .num{font-size:34px}
+    .test-topbar{position:static}
+    .test-sidebar{position:static}
+    .level-banner{flex-direction:column;gap:14px;padding:18px}
+    .level-icon{width:52px;height:52px;font-size:28px}
+    .level-content h3{font-size:18px}
+    .roadmap{padding:20px 18px}
+    .roadmap-phase{flex-direction:column;gap:12px}
+    .time-analysis{padding:18px;grid-template-columns:1fr}
+    .priority-header{flex-direction:column;align-items:flex-start;gap:8px}
+    .notify-head{padding:22px 20px 18px}
+    .notify-body{padding:18px 20px 6px}
+    .notify-actions{padding:6px 20px 18px}
+    .notify-score .big{font-size:38px}
+    .notify-stat .num{font-size:22px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-logo">SAT</div>
+      <div>
+        <div class="brand-title">SAT Math Prep</div>
+        <div class="brand-sub">Sequences — Arithmetic & Geometric Progressions</div>
+      </div>
+    </div>
+    <div class="header-credit">
+      Thiết kế bởi <strong>Thầy Nguyễn Hữu Trung</strong><br>
+      THPT Trần Phú • ☎ 0964 848 989
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="nav-inner">
+    <button class="nav-btn active" data-tab="home">🏠 Trang chủ</button>
+    <button class="nav-btn" data-tab="knowledge">📐 Kiến thức</button>
+    <button class="nav-btn" data-tab="vocab">📚 Từ vựng</button>
+    <button class="nav-btn" data-tab="practice">✏️ Luyện tập</button>
+    <button class="nav-btn" data-tab="sat">⏱️ SAT Simulation</button>
+  </div>
+</nav>
+
+<main>
+
+<section id="home" class="section active">
+  <div class="hero">
+    <h1>Chinh phục SAT Math: Sequences & Series</h1>
+    <p>Khóa ôn tập chuyên sâu chủ đề <strong>Dãy số — Cấp số cộng — Cấp số nhân</strong> dành cho học sinh lớp 11 chuẩn bị cho kỳ thi <strong>Digital SAT</strong>. Nội dung song ngữ Việt–Anh, từ vựng có phiên âm IPA, 30 câu trắc nghiệm có phản hồi tức thì và <strong>3 bộ SAT Simulation × 30 câu</strong> có đồng hồ, tổng kết và phân tích chi tiết.</p>
+    <div class="hero-author">
+      <div class="avatar">NT</div>
+      <div>
+        <strong>Thầy Nguyễn Hữu Trung</strong>
+        <span>Giáo viên Toán — THPT Trần Phú • ☎ 0964 848 989</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-grid">
+    <div class="home-card" onclick="switchTab('knowledge')">
+      <div class="icon">📐</div>
+      <h4>1. Kiến thức cơ bản</h4>
+      <p>6 mục lý thuyết song ngữ Việt — Anh: dãy số, cấp số cộng, cấp số nhân, tổng, ứng dụng thực tế.</p>
+    </div>
+    <div class="home-card" onclick="switchTab('vocab')">
+      <div class="icon">📚</div>
+      <h4>2. Từ vựng chuyên ngành</h4>
+      <p>40 từ khóa SAT Math kèm phiên âm IPA, nghĩa tiếng Việt, ví dụ minh họa và phát âm tự động.</p>
+    </div>
+    <div class="home-card" onclick="switchTab('practice')">
+      <div class="icon">✏️</div>
+      <h4>3. Luyện tập 3 nhóm</h4>
+      <p>30 câu trắc nghiệm tiếng Anh chia 3 mức độ: Cơ bản — Trung bình — Nâng cao. Chấm điểm ngay, gợi ý ôn lại lý thuyết.</p>
+    </div>
+    <div class="home-card" onclick="switchTab('sat')">
+      <div class="icon">⏱️</div>
+      <h4>4. SAT Simulation — 3 bộ × 30 câu</h4>
+      <p>Mô phỏng Digital SAT Math với 90 câu hỏi tuyển chọn, đồng hồ 45 phút/bộ, thanh điều hướng và phân tích chi tiết sau khi nộp bài.</p>
+    </div>
+  </div>
+</section>
+
+<section id="knowledge" class="section">
+  <h2 class="page-title">📐 Kiến thức cơ bản cần nắm vững</h2>
+  <p class="page-subtitle">Song ngữ Việt — Anh · Dành cho học sinh lớp 11 chuẩn bị thi SAT Digital</p>
+  <div class="card">
+    <h3><span class="num">I</span> Dãy số (Sequences)</h3>
+    <table>
+      <tr><th>Tiếng Việt</th><th>English</th></tr>
+      <tr><td>Dãy số là một hàm số xác định trên tập hợp các số nguyên dương.</td><td>A sequence is a function whose domain is the set of positive integers.</td></tr>
+      <tr><td>Ký hiệu: \((u_n)\) hay \(u_1, u_2, u_3, \ldots\)</td><td>Notation: \((u_n)\) or \(u_1, u_2, u_3, \ldots\)</td></tr>
+      <tr><td>\(u_1\) là số hạng đầu, \(u_n\) là số hạng tổng quát (số hạng thứ \(n\)).</td><td>\(u_1\) is the first term; \(u_n\) is the general term (\(n\)-th term).</td></tr>
+      <tr><td>Dãy số hữu hạn: có số hạng cuối. Dãy số vô hạn: kéo dài vô tận.</td><td>Finite sequence: has a last term. Infinite sequence: extends indefinitely.</td></tr>
+    </table>
+    <h4>Cách cho một dãy số (Ways to Define a Sequence):</h4>
+    <ul>
+      <li><strong>Công thức tổng quát</strong> (Explicit formula): \(u_n = f(n)\). Ví dụ: \(u_n = 2n+1\).</li>
+      <li><strong>Công thức truy hồi</strong> (Recursive formula): cho \(u_1\) và hệ thức liên hệ \(u_{n+1}\) với \(u_n\).</li>
+      <li><strong>Mô tả bằng lời</strong> (Verbal description).</li>
+    </ul>
+    <h4>Dãy số tăng, giảm (Increasing / Decreasing Sequences):</h4>
+    <ul>
+      <li>\((u_n)\) <strong>tăng</strong> nếu \(u_{n+1} > u_n, \forall n\).</li>
+      <li>\((u_n)\) <strong>giảm</strong> nếu \(u_{n+1} < u_n, \forall n\).</li>
+      <li>Dãy <strong>bị chặn</strong> nếu vừa bị chặn trên vừa bị chặn dưới.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="num">II</span> Cấp số cộng (Arithmetic Progression — AP)</h3>
+    <p><strong>Định nghĩa:</strong> Cấp số cộng là dãy số mà mỗi số hạng kể từ số hạng thứ hai đều bằng số hạng đứng ngay trước nó cộng với một số không đổi \(d\), gọi là <strong>công sai</strong>.</p>
+    <div class="formula-box">
+      <strong>Công thức truy hồi:</strong> \(u_{n+1} = u_n + d\)<br>
+      <strong>Số hạng tổng quát:</strong> \(u_n = u_1 + (n-1)d\)
+    </div>
+    <div class="formula-box">
+      <strong>Tính chất:</strong> \(u_n = \dfrac{u_{n-1} + u_{n+1}}{2}\)
+    </div>
+    <div class="formula-box">
+      <strong>Tổng \(n\) số hạng đầu:</strong> \(S_n = \dfrac{n(u_1 + u_n)}{2} = \dfrac{n[2u_1 + (n-1)d]}{2}\)
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="num">III</span> Cấp số nhân (Geometric Progression — GP)</h3>
+    <p><strong>Định nghĩa:</strong> Cấp số nhân là dãy số mà mỗi số hạng kể từ số hạng thứ hai đều bằng số hạng đứng ngay trước nó nhân với một số không đổi \(q\), gọi là <strong>công bội</strong>.</p>
+    <div class="formula-box">
+      <strong>Công thức truy hồi:</strong> \(u_{n+1} = u_n \cdot q\)<br>
+      <strong>Số hạng tổng quát:</strong> \(u_n = u_1 \cdot q^{n-1}\)
+    </div>
+    <div class="formula-box">
+      <strong>Tính chất:</strong> \(u_n^2 = u_{n-1} \cdot u_{n+1}\)
+    </div>
+    <div class="formula-box">
+      <strong>Tổng \(n\) số hạng đầu:</strong> \(S_n = u_1 \cdot \dfrac{1 - q^n}{1 - q} \quad (q \neq 1)\)
+    </div>
+    <div class="formula-box">
+      <strong>Tổng vô hạn (khi \(|q|<1\)):</strong> \(S = \dfrac{u_1}{1 - q}\)
+    </div>
+  </div>
+  <div class="card">
+    <h3><span class="num">IV</span> Ứng dụng thực tế (Real-World Applications)</h3>
+    <table>
+      <tr><th>Tình huống</th><th>Loại dãy</th><th>Công thức</th></tr>
+      <tr><td>Lương tăng đều mỗi năm một số tiền cố định</td><td>CSC (AP)</td><td>\(u_n = u_1 + (n-1)d\)</td></tr>
+      <tr><td>Dân số / vi khuẩn tăng theo tỉ lệ % không đổi</td><td>CSN (GP)</td><td>\(u_n = u_1 \cdot q^{n-1}\)</td></tr>
+      <tr><td>Lãi kép (Compound interest)</td><td>CSN (GP)</td><td>\(A = P(1 + r)^n\)</td></tr>
+      <tr><td>Khấu hao tài sản theo % mỗi năm</td><td>CSN (GP)</td><td>\(V_n = V_1 \cdot (1 - r)^{n-1}\)</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3><span class="num">V</span> Nhận dạng CSC và CSN</h3>
+    <ul>
+      <li><strong>Kiểm tra CSC:</strong> Tính \(u_2 - u_1,\ u_3 - u_2, \ldots\) Nếu tất cả bằng nhau → CSC.</li>
+      <li><strong>Kiểm tra CSN:</strong> Tính \(\dfrac{u_2}{u_1},\ \dfrac{u_3}{u_2}, \ldots\) Nếu tất cả bằng nhau → CSN.</li>
+      <li><strong>Lưu ý:</strong> Một dãy có thể vừa không là CSC vừa không là CSN.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3><span class="num">VI</span> Ghi chú SAT Digital Math</h3>
+    <ul>
+      <li><strong>Cấu trúc:</strong> Reading & Writing (64 phút / 54 câu) và Math (70 phút / 44 câu).</li>
+      <li>Chủ đề dãy số chủ yếu trong <strong>Advanced Math</strong> (~13–15 câu) và <strong>Problem Solving & Data Analysis</strong>.</li>
+      <li>Được phép dùng máy tính trong toàn bộ phần Math.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="vocab" class="section">
+  <h2 class="page-title">📚 Hệ thống từ vựng SAT Math</h2>
+  <p class="page-subtitle">40 từ khóa chuyên ngành kèm phiên âm IPA — Nhấn 🔊 để nghe phát âm</p>
+  <div class="card">
+    <input type="text" id="vocabSearch" class="vocab-search" placeholder="🔍 Tìm kiếm từ vựng (tiếng Anh hoặc tiếng Việt)...">
+    <div style="overflow-x:auto">
+      <table class="vocab-table" id="vocabTable">
+        <thead>
+          <tr><th>#</th><th>English</th><th>Phiên âm (IPA)</th><th>Nghĩa</th><th>Ví dụ</th><th></th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="practice" class="section">
+  <h2 class="page-title">✏️ Luyện tập trắc nghiệm</h2>
+  <p class="page-subtitle">30 câu hỏi tiếng Anh · Chấm điểm ngay · Gợi ý ôn lại lý thuyết nếu sai</p>
+  <div class="group-tabs">
+    <button class="group-tab active" data-group="1">🟢 Nhóm 1 — Cơ bản <span class="badge">10</span></button>
+    <button class="group-tab" data-group="2">🟡 Nhóm 2 — Trung bình <span class="badge">10</span></button>
+    <button class="group-tab" data-group="3">🔴 Nhóm 3 — Nâng cao <span class="badge">10</span></button>
+  </div>
+  <div class="group-panel active" id="panel-1"></div>
+  <div class="group-panel" id="panel-2"></div>
+  <div class="group-panel" id="panel-3"></div>
+</section>
+
+<section id="sat" class="section">
+  <h2 class="page-title">⏱️ SAT Digital Simulation</h2>
+  <p class="page-subtitle">3 bộ đề × 30 câu — Mô phỏng cấu trúc Digital SAT Math · Đồng hồ 45 phút · Tổng kết & phân tích chi tiết</p>
+
+  <div class="sat-hero">
+    <h2>📘 Digital SAT Math — Sequences & Series</h2>
+    <p>Mỗi bộ gồm <strong>30 câu hỏi tuyển chọn</strong>, thời gian <strong>45 phút</strong> (90 giây/câu). Sau khi nộp bài, bạn sẽ nhận <strong>bảng tổng kết điểm</strong>, <strong>đánh giá năng lực</strong>, <strong>lộ trình ôn tập cá nhân hóa</strong> và <strong>phân tích chi tiết từng câu sai</strong>.</p>
+    <div class="sat-info-row">
+      <div class="sat-info"><strong>90</strong>Câu hỏi (3 bộ)</div>
+      <div class="sat-info"><strong>45:00</strong>Mỗi bộ</div>
+      <div class="sat-info"><strong>Calculator</strong>Allowed</div>
+      <div class="sat-info"><strong>A–D</strong>4 lựa chọn</div>
+    </div>
+  </div>
+
+  <div id="satSetSelector" class="sat-set-selector"></div>
+
+  <div id="satTestScreen" style="display:none">
+    <div class="test-topbar">
+      <div>
+        <div class="test-set-name" id="testSetName">Bộ 1</div>
+        <div class="test-progress" id="testProgress">Câu 1 / 30 · Đã trả lời 0/30</div>
+      </div>
+      <div class="timer-wrap">
+        <div class="timer" id="testTimer">45:00</div>
+        <button class="btn btn-primary" id="btnSubmitTest">📝 Nộp bài</button>
+        <button class="btn btn-outline" id="btnQuitTest">✕ Thoát</button>
+      </div>
+    </div>
+    <div class="test-layout">
+      <aside class="test-sidebar">
+        <h4>Bảng câu hỏi</h4>
+        <div class="nav-grid" id="navGrid"></div>
+        <div class="nav-legend">
+          <div><span class="legend-box current"></span> Câu đang xem</div>
+          <div><span class="legend-box answered"></span> Đã trả lời</div>
+          <div><span class="legend-box"></span> Chưa trả lời</div>
+        </div>
+      </aside>
+      <div class="test-main">
+        <div class="q-card" id="testQuestionCard">
+          <div class="q-head">
+            <div class="q-num" id="testQNum">1</div>
+            <div class="q-text" id="testQText"></div>
+          </div>
+          <div class="options" id="testOptions"></div>
+        </div>
+        <div class="test-nav-btns">
+          <button class="btn btn-outline" id="btnPrev">← Câu trước</button>
+          <button class="btn btn-primary" id="btnNext">Câu tiếp →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="satResultScreen" style="display:none"></div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>📘 Về khóa học</h4>
+      <p>Web ôn thi SAT Math chuyên đề <strong>Sequences — Arithmetic & Geometric Progressions</strong> — Dãy số, cấp số cộng, cấp số nhân. Nội dung song ngữ Việt–Anh, phù hợp học sinh lớp 11 chuẩn bị cho kỳ thi Digital SAT.</p>
+      <div class="footer-author-card">
+        <div class="name">👨‍🏫 Thầy Nguyễn Hữu Trung</div>
+        <div class="role">Giáo viên Toán — THPT Trần Phú</div>
+        <div class="phone">📞 0964 848 989</div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>🧭 Điều hướng</h4>
+      <ul>
+        <li onclick="switchTab('home')">🏠 Trang chủ</li>
+        <li onclick="switchTab('knowledge')">📐 Kiến thức cơ bản</li>
+        <li onclick="switchTab('vocab')">📚 Từ vựng SAT Math</li>
+        <li onclick="switchTab('practice')">✏️ Luyện tập 3 nhóm</li>
+        <li onclick="switchTab('sat')">⏱️ SAT Simulation</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>📞 Liên hệ</h4>
+      <ul>
+        <li>👤 <strong>Thầy Nguyễn Hữu Trung</strong></li>
+        <li>🏫 THPT Trần Phú</li>
+        <li>☎️ 0964 848 989</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 <strong>Thầy Nguyễn Hữu Trung — THPT Trần Phú</strong> · Thiết kế web ôn thi SAT Math chuyên đề Sequences & Series</p>
+    <p style="margin-top:6px">Made with ❤️ for Grade 11 students preparing for the Digital SAT</p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   TAB SWITCHING
+============================================================ */
+function switchTab(tab){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(tab).classList.add('active');
+  document.querySelector(`.nav-btn[data-tab="${tab}"]`).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.nav-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>switchTab(btn.dataset.tab));
+});
+
+/* ============================================================
+   SCREEN MANAGEMENT — quản lý 3 màn hình SAT
+============================================================ */
+function showScreen(name){
+  const screens = {
+    selector: document.getElementById('satSetSelector'),
+    test:     document.getElementById('satTestScreen'),
+    result:   document.getElementById('satResultScreen')
+  };
+  Object.entries(screens).forEach(([key, el]) => {
+    if(!el) return;
+    if(key === name){
+      el.style.display = (key === 'selector') ? 'grid' : 'block';
+    } else {
+      el.style.display = 'none';
+    }
+  });
+}
+
+/* ============================================================
+   SOUND
+============================================================ */
+let audioCtx=null;
+function getCtx(){
+  if(!audioCtx) audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+  if(audioCtx.state==='suspended') audioCtx.resume();
+  return audioCtx;
+}
+function playDing(){try{const ctx=getCtx();[880,1320].forEach((f,i)=>{const osc=ctx.createOscillator(),g=ctx.createGain();osc.connect(g);g.connect(ctx.destination);osc.type='sine';osc.frequency.setValueAtTime(f,ctx.currentTime+i*0.08);g.gain.setValueAtTime(0.18,ctx.currentTime+i*0.08);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+i*0.08+0.35);osc.start(ctx.currentTime+i*0.08);osc.stop(ctx.currentTime+i*0.08+0.4);});}catch(e){}}
+function playBuzz(){try{const ctx=getCtx();const osc=ctx.createOscillator(),g=ctx.createGain();osc.connect(g);g.connect(ctx.destination);osc.type='sawtooth';osc.frequency.setValueAtTime(180,ctx.currentTime);osc.frequency.exponentialRampToValueAtTime(90,ctx.currentTime+0.3);g.gain.setValueAtTime(0.15,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.35);osc.start(ctx.currentTime);osc.stop(ctx.currentTime+0.4);}catch(e){}}
+function playTick(){try{const ctx=getCtx();const osc=ctx.createOscillator(),g=ctx.createGain();osc.connect(g);g.connect(ctx.destination);osc.type='square';osc.frequency.setValueAtTime(1200,ctx.currentTime);g.gain.setValueAtTime(0.05,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.05);osc.start(ctx.currentTime);osc.stop(ctx.currentTime+0.06);}catch(e){}}
+function playFanfare(){try{const ctx=getCtx();[523,659,784,1046].forEach((f,i)=>{const osc=ctx.createOscillator(),g=ctx.createGain();osc.connect(g);g.connect(ctx.destination);osc.type='sine';osc.frequency.setValueAtTime(f,ctx.currentTime+i*0.12);g.gain.setValueAtTime(0.2,ctx.currentTime+i*0.12);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+i*0.12+0.5);osc.start(ctx.currentTime+i*0.12);osc.stop(ctx.currentTime+i*0.12+0.6);});}catch(e){}}
+
+/* ============================================================
+   VOCABULARY
+============================================================ */
+const vocab=[
+  ["Sequence","/ˈsiːkwəns/","Dãy số","The sequence \\(1,3,5,7,9\\) is arithmetic."],
+  ["Term","/tɜːrm/","Số hạng","The first term is \\(u_1=3\\)."],
+  ["Arithmetic sequence","/əˈrɪθmətɪk ˈsiːkwəns/","Cấp số cộng","Each term differs by a constant."],
+  ["Geometric sequence","/ˌdʒiːəˈmetrɪk ˈsiːkwəns/","Cấp số nhân","Each term is multiplied by a constant."],
+  ["Common difference","/ˈkɒmən ˈdɪfrəns/","Công sai \\(d\\)","\\(d = u_2 - u_1\\)."],
+  ["Common ratio","/ˈkɒmən ˈreɪʃioʊ/","Công bội \\(q\\)","\\(q = u_2 / u_1\\)."],
+  ["First term","/fɜːrst tɜːrm/","Số hạng đầu","The first term is denoted \\(u_1\\)."],
+  ["General term","/ˈdʒenərəl tɜːrm/","Số hạng tổng quát","\\(u_n = u_1 + (n-1)d\\) for AP."],
+  ["Nth term","/enθ tɜːrm/","Số hạng thứ n","Find the 10th term of the AP."],
+  ["Recursive formula","/rɪˈkɜːrsɪv ˈfɔːrmjələ/","Công thức truy hồi","\\(u_{n+1}=u_n+d\\)."],
+  ["Explicit formula","/ɪkˈsplɪsɪt ˈfɔːrmjələ/","Công thức tường minh","\\(u_n = f(n)\\)."],
+  ["Finite","/ˈfaɪnaɪt/","Hữu hạn","A finite sequence has a last term."],
+  ["Infinite","/ˈɪnfɪnət/","Vô hạn","An infinite sequence has no last term."],
+  ["Sum","/sʌm/","Tổng","\\(S_n\\) is the sum of the first \\(n\\) terms."],
+  ["Partial sum","/ˈpɑːrʃl sʌm/","Tổng riêng phần","The partial sum \\(S_5\\)."],
+  ["Progression","/prəˈɡreʃn/","Cấp số","An arithmetic progression."],
+  ["Consecutive","/kənˈsekjətɪv/","Liên tiếp","Three consecutive terms."],
+  ["Pattern","/ˈpætərn/","Quy luật","Identify the pattern in the sequence."],
+  ["Formula","/ˈfɔːrmjələ/","Công thức","Use the formula for the sum."],
+  ["Difference","/ˈdɪfrəns/","Hiệu","The difference between terms."],
+  ["Ratio","/ˈreɪʃioʊ/","Tỉ số","The ratio of consecutive terms."],
+  ["Growth","/ɡroʊθ/","Tăng trưởng","Exponential growth."],
+  ["Decay","/dɪˈkeɪ/","Suy giảm","Exponential decay."],
+  ["Linear growth","/ˈlɪniər ɡroʊθ/","Tăng trưởng tuyến tính","Linear growth is modeled by an AP."],
+  ["Exponential growth","/ˌekspəˈnenʃl ɡroʊθ/","Tăng trưởng mũ","Modeled by a GP with \\(q>1\\)."],
+  ["Compound interest","/ˈkɑːmpaʊnd ˈɪntrəst/","Lãi kép","\\(A=P(1+r)^n\\)."],
+  ["Depreciation","/dɪˌpriːʃiˈeɪʃn/","Khấu hao","Value decreases each year."],
+  ["Converge","/kənˈvɜːrdʒ/","Hội tụ","The infinite GP converges when \\(|q|<1\\)."],
+  ["Diverge","/daɪˈvɜːrdʒ/","Phân kỳ","The series diverges."],
+  ["Infinite series","/ˈɪnfɪnət ˈsɪriːz/","Chuỗi vô hạn","Sum of infinitely many terms."],
+  ["Limit","/ˈlɪmɪt/","Giới hạn","The limit of the sequence."],
+  ["Index","/ˈɪndeks/","Chỉ số","\\(n\\) is the index."],
+  ["Notation","/noʊˈteɪʃn/","Ký hiệu","Summation notation."],
+  ["Sigma notation","/ˈsɪɡmə noʊˈteɪʃn/","Ký hiệu sigma","\\(\\sum_{k=1}^{n} u_k\\)."],
+  ["Series","/ˈsɪriːz/","Chuỗi","The sum of a sequence."],
+  ["Arithmetic mean","/əˈrɪθmətɪk miːn/","Trung bình cộng","\\(u_n = (u_{n-1}+u_{n+1})/2\\)."],
+  ["Geometric mean","/ˌdʒiːəˈmetrɪk miːn/","Trung bình nhân","\\(u_n^2 = u_{n-1} \\cdot u_{n+1}\\)."],
+  ["Insert","/ɪnˈsɜːrt/","Chèn","Insert 3 means between 5 and 25."],
+  ["Alternate","/ˈɔːltərnət/","Xen kẽ","An alternating sequence."],
+  ["Fibonacci sequence","/ˌfɪbəˈnɑːtʃi ˈsiːkwəns/","Dãy Fibonacci","1, 1, 2, 3, 5, 8, ..."]
+];
+function renderVocab(filter=""){
+  const tbody=document.querySelector('#vocabTable tbody');
+  tbody.innerHTML='';
+  const f=filter.toLowerCase().trim();
+  vocab.forEach((v,i)=>{
+    if(f && !(v[0].toLowerCase().includes(f)||v[2].toLowerCase().includes(f))) return;
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${i+1}</td><td>${v[0]}</td><td>${v[1]}</td><td>${v[2]}</td><td>${v[3]}</td>
+      <td><button class="speak-btn" data-word="${v[0]}" title="Phát âm">🔊</button></td>`;
+    tbody.appendChild(tr);
+  });
+  if(window.renderMathInElement){renderMathInElement(tbody,{delimiters:[{left:'\\(',right:'\\)',display:false}]});}
+}
+document.getElementById('vocabSearch').addEventListener('input',e=>renderVocab(e.target.value));
+document.addEventListener('click',e=>{
+  if(e.target.classList.contains('speak-btn')){
+    const word=e.target.dataset.word;
+    if('speechSynthesis' in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(word);u.lang='en-US';u.rate=0.9;speechSynthesis.speak(u);}
+  }
+});
+renderVocab();
+
+/* ============================================================
+   PRACTICE
+============================================================ */
+const practiceData={
+  1:[
+    {q:"An arithmetic sequence has first term \\(u_1=3\\) and common difference \\(d=4\\). What is the 10th term \\(u_{10}\\)?",opts:["\\(39\\)","\\(43\\)","\\(40\\)","\\(36\\)"],ans:0,exp:"\\(u_{10}=u_1+(10-1)d=3+9\\cdot 4=39\\).",review:"Ôn lại mục II — Số hạng tổng quát CSC"},
+    {q:"What is the common difference of the arithmetic sequence 5, 8, 11, 14, ...?",opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(5\\)"],ans:1,exp:"\\(d=8-5=3\\).",review:"Ôn lại mục II — Công sai \\(d\\)"},
+    {q:"What is the next term in the geometric sequence 2, 6, 18, 54, ...?",opts:["\\(108\\)","\\(144\\)","\\(162\\)","\\(216\\)"],ans:2,exp:"Common ratio \\(q=3\\). Next: \\(54 \\cdot 3 = 162\\).",review:"Ôn lại mục III — Công bội \\(q\\)"},
+    {q:"A geometric sequence has \\(u_1=2\\) and \\(q=3\\). What is \\(u_4\\)?",opts:["\\(18\\)","\\(24\\)","\\(54\\)","\\(162\\)"],ans:2,exp:"\\(u_4=u_1 \\cdot q^{3}=2 \\cdot 27=54\\).",review:"Ôn lại mục III — Số hạng tổng quát CSN"},
+    {q:"Find the sum of the first 5 terms of the arithmetic sequence 1, 3, 5, 7, 9, ...",opts:["\\(20\\)","\\(25\\)","\\(30\\)","\\(35\\)"],ans:1,exp:"\\(S_5=\\dfrac{5(1+9)}{2}=25\\).",review:"Ôn lại mục II — Tổng \\(S_n\\)"},
+    {q:"Which of the following sequences is arithmetic?",opts:["\\(2, 4, 8, 16\\)","\\(3, 6, 9, 12\\)","\\(1, 4, 9, 16\\)","\\(1, 1, 2, 3\\)"],ans:1,exp:"\\(3,6,9,12\\) has common difference \\(d=3\\).",review:"Ôn lại mục V — Nhận dạng CSC"},
+    {q:"What is the common ratio of the geometric sequence 4, 12, 36, 108, ...?",opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(6\\)"],ans:1,exp:"\\(q=12/4=3\\).",review:"Ôn lại mục III — Công bội \\(q\\)"},
+    {q:"A sequence is defined by \\(u_n = 2n+1\\). What is \\(u_5\\)?",opts:["\\(9\\)","\\(10\\)","\\(11\\)","\\(13\\)"],ans:2,exp:"\\(u_5 = 2(5)+1 = 11\\).",review:"Ôn lại mục I — Số hạng tổng quát"},
+    {q:"Find the sum of the first 4 terms of the geometric sequence 1, 2, 4, 8, ...",opts:["\\(12\\)","\\(14\\)","\\(15\\)","\\(16\\)"],ans:2,exp:"\\(S_4 = 1+2+4+8 = 15\\).",review:"Ôn lại mục III — Tổng \\(S_n\\)"},
+    {q:"A sequence is defined by \\(u_1 = 2\\) and \\(u_{n+1} = u_n + 3\\). What is \\(u_5\\)?",opts:["\\(11\\)","\\(14\\)","\\(17\\)","\\(20\\)"],ans:1,exp:"\\(u_2=5, u_3=8, u_4=11, u_5=14\\).",review:"Ôn lại mục I — Công thức truy hồi"}
+  ],
+  2:[
+    {q:"An arithmetic sequence has \\(u_1=4\\) and \\(d=6\\). What is the value of \\(n\\) for which \\(u_n=100\\)?",opts:["\\(15\\)","\\(16\\)","\\(17\\)","\\(18\\)"],ans:2,exp:"\\(4+(n-1)\\cdot 6=100 \\Rightarrow n=17\\).",review:"Ôn lại mục II — Tìm \\(n\\)"},
+    {q:"Find the sum \\(1 + 3 + 5 + \\cdots + 99\\).",opts:["\\(2400\\)","\\(2450\\)","\\(2500\\)","\\(2550\\)"],ans:2,exp:"\\(n=50\\). \\(S_{50}=\\dfrac{50(1+99)}{2}=2500\\).",review:"Ôn lại mục II — Tổng \\(S_n\\)"},
+    {q:"A geometric sequence has \\(u_1=3\\) and \\(q=2\\). What is \\(S_6\\)?",opts:["\\(189\\)","\\(195\\)","\\(192\\)","\\(186\\)"],ans:0,exp:"\\(S_6 = 3\\cdot\\dfrac{2^6-1}{2-1}=189\\).",review:"Ôn lại mục III — Tổng \\(S_n\\)"},
+    {q:"Insert 3 arithmetic means between 5 and 25. The means are:",opts:["\\(10,15,20\\)","\\(9,14,19\\)","\\(11,16,21\\)","\\(8,13,18\\)"],ans:0,exp:"\\(d=5\\). Means: 10, 15, 20.",review:"Ôn lại mục II — Chèn số hạng"},
+    {q:"In a geometric sequence, \\(u_1=2\\) and \\(u_4=54\\). What is \\(q\\)?",opts:["\\(q=2\\)","\\(q=3\\)","\\(q=4\\)","\\(q=9\\)"],ans:1,exp:"\\(q^3=27 \\Rightarrow q=3\\).",review:"Ôn lại mục III — Công bội"},
+    {q:"What is the sum of the infinite geometric series \\(8+4+2+1+\\cdots\\)?",opts:["\\(12\\)","\\(14\\)","\\(16\\)","\\(18\\)"],ans:2,exp:"\\(S=\\dfrac{8}{1-1/2}=16\\).",review:"Ôn lại mục III — Tổng CSN lùi vô hạn"},
+    {q:"An arithmetic sequence has \\(u_3=10\\) and \\(u_7=22\\). What is \\(u_1\\)?",opts:["\\(4\\)","\\(5\\)","\\(6\\)","\\(7\\)"],ans:0,exp:"\\(d=3\\). \\(u_1=10-6=4\\).",review:"Ôn lại mục II — Tìm \\(u_1, d\\)"},
+    {q:"A job pays $30,000 in the first year, with a $2,000 raise each year. Salary in the 8th year?",opts:["\\(\\$42{,}000\\)","\\(\\$44{,}000\\)","\\(\\$46{,}000\\)","\\(\\$48{,}000\\)"],ans:1,exp:"\\(u_8=30000+7(2000)=44000\\).",review:"Ôn lại mục IV — Ứng dụng CSC"},
+    {q:"Find \\(x\\) such that \\(x-1,\\ x+1,\\ 2x+3\\) are in AP.",opts:["\\(x=0\\)","\\(x=1\\)","\\(x=2\\)","\\(x=3\\)"],ans:0,exp:"\\(2(x+1)=(x-1)+(2x+3) \\Rightarrow x=0\\).",review:"Ôn lại mục II — Tính chất CSC"},
+    {q:"The first three terms of a GP are \\(3,\\ 3r,\\ 3r^2\\). Sum is 21. Find \\(r>0\\).",opts:["\\(r=1\\)","\\(r=2\\)","\\(r=3\\)","\\(r=4\\)"],ans:1,exp:"\\(r^2+r-6=0 \\Rightarrow r=2\\).",review:"Ôn lại mục III — Công bội \\(q\\)"}
+  ],
+  3:[
+    {q:"A sequence has partial sum \\(S_n=3n^2+2n\\). What is \\(u_5\\)?",opts:["\\(27\\)","\\(29\\)","\\(31\\)","\\(33\\)"],ans:1,exp:"\\(u_5=S_5-S_4=85-56=29\\).",review:"Ôn lại mục II — Quan hệ \\(u_n=S_n-S_{n-1}\\)"},
+    {q:"In a geometric sequence, \\(u_1=5\\) and \\(u_3=20\\). What is \\(u_5\\)?",opts:["\\(40\\)","\\(60\\)","\\(80\\)","\\(100\\)"],ans:2,exp:"\\(q^2=4\\). \\(u_5=20\\cdot 4=80\\).",review:"Ôn lại mục III — Tính chất CSN"},
+    {q:"What is the sum of the infinite geometric series \\(4+2+1+\\tfrac12+\\cdots\\)?",opts:["\\(6\\)","\\(7\\)","\\(8\\)","\\(9\\)"],ans:2,exp:"\\(S=\\dfrac{4}{1-1/2}=8\\).",review:"Ôn lại mục III — Tổng CSN lùi vô hạn"},
+    {q:"AP có \\(S_{10}=100\\) và \\(S_{20}=400\\). Find \\(u_5\\).",opts:["\\(7\\)","\\(8\\)","\\(9\\)","\\(10\\)"],ans:2,exp:"\\(d=2, u_1=1\\). \\(u_5=9\\).",review:"Ôn lại mục II — Hệ phương trình"},
+    {q:"Next term of 1, 4, 9, 16, 25, ...?",opts:["\\(30\\)","\\(32\\)","\\(36\\)","\\(49\\)"],ans:2,exp:"\\(6^2=36\\).",review:"Ôn lại mục I — Nhận dạng quy luật"},
+    {q:"Bacteria double every 5h. Starting 100, after 20h?",opts:["\\(800\\)","\\(1200\\)","\\(1600\\)","\\(2000\\)"],ans:2,exp:"\\(u_5=100\\cdot 2^4=1600\\).",review:"Ôn lại mục IV — Ứng dụng CSN"},
+    {q:"Car worth \\$30,000 depreciates 20%/year. Value after 3 years?",opts:["\\(\\$12{,}000\\)","\\(\\$15{,}360\\)","\\(\\$18{,}000\\)","\\(\\$24{,}000\\)"],ans:1,exp:"\\(30000\\cdot 0.8^3=15360\\).",review:"Ôn lại mục IV — Khấu hao"},
+    {q:"\\(u_{n+1}=2u_n+1, u_1=1\\). Find \\(u_4\\).",opts:["\\(11\\)","\\(13\\)","\\(15\\)","\\(17\\)"],ans:2,exp:"\\(u_4=15\\).",review:"Ôn lại mục I — Công thức truy hồi"},
+    {q:"For \\(u_n = 3\\cdot(-2)^{n-1}\\), find \\(S_4\\).",opts:["\\(-15\\)","\\(-9\\)","\\(9\\)","\\(15\\)"],ans:0,exp:"Sum \\(=3-6+12-24=-15\\).",review:"Ôn lại mục III — Tổng CSN"},
+    {q:"Three positive numbers in GP: sum 21, product 216. Largest?",opts:["\\(6\\)","\\(9\\)","\\(12\\)","\\(18\\)"],ans:2,exp:"3, 6, 12. Largest: 12.",review:"Ôn lại mục III — 3 số hạng CSN"}
+  ]
+};
+
+const letterMap=['A','B','C','D'];
+const practiceState={1:{},2:{},3:{}};
+
+function renderPractice(group){
+  const container=document.getElementById('panel-'+group);
+  container.innerHTML='';
+  practiceData[group].forEach((item,idx)=>{
+    const card=document.createElement('div');
+    card.className='q-card';card.id=`g${group}q${idx}`;
+    let optsHtml='';
+    item.opts.forEach((o,i)=>{optsHtml+=`<button class="option" data-group="${group}" data-q="${idx}" data-opt="${i}"><span class="letter">${letterMap[i]}</span><span class="opt-text">${o}</span></button>`;});
+    card.innerHTML=`<div class="q-head"><div class="q-num">${idx+1}</div><div class="q-text">${item.q}</div></div><div class="options">${optsHtml}</div><div class="feedback" id="fb-${group}-${idx}"></div>`;
+    container.appendChild(card);
+  });
+  if(window.renderMathInElement){renderMathInElement(container,{delimiters:[{left:'\\(',right:'\\)',display:false}]});}
+}
+document.querySelectorAll('.group-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.group-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.group-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-'+tab.dataset.group).classList.add('active');
+  });
+});
+[1,2,3].forEach(renderPractice);
+
+document.addEventListener('click',e=>{
+  const btn=e.target.closest('.option');
+  if(!btn||btn.classList.contains('disabled')) return;
+  const group=btn.dataset.group;if(!group) return;
+  const qIdx=+btn.dataset.q, optIdx=+btn.dataset.opt;
+  const card=document.getElementById(`g${group}q${qIdx}`);
+  const item=practiceData[group][qIdx];
+  const fb=document.getElementById(`fb-${group}-${qIdx}`);
+  const allOpts=card.querySelectorAll('.option');
+  allOpts.forEach(o=>o.classList.add('disabled'));
+  allOpts[item.ans].classList.add('correct');
+  const isCorrect=optIdx===item.ans;
+  if(!isCorrect){btn.classList.add('wrong');}
+  card.classList.add(isCorrect?'correct':'wrong');
+  if(practiceState[group][qIdx]===undefined) practiceState[group][qIdx]=isCorrect;
+  fb.className='feedback show '+(isCorrect?'ok':'no');
+  if(isCorrect){fb.innerHTML=`<strong>✅ Correct!</strong>${item.exp}<div class="review">💡 ${item.review}</div>`;playDing();}
+  else{fb.innerHTML=`<strong>❌ Incorrect. Correct answer: ${letterMap[item.ans]}</strong>${item.exp}<div class="review">📖 Ôn tập lại: ${item.review}</div>`;playBuzz();}
+});
+
+/* ============================================================
+   SAT SIMULATION DATA
+============================================================ */
+const TOPICS = {
+  AP:  "Cấp số cộng",
+  GP:  "Cấp số nhân",
+  SUM: "Tổng hữu hạn",
+  INF: "Tổng vô hạn",
+  APP: "Ứng dụng thực tế",
+  REC: "Truy hồi & Hỗn hợp"
+};
+
+const TOPIC_RECOMMENDATIONS = {
+  AP: "Ghi nhớ \\(u_n = u_1+(n-1)d\\) và \\(S_n = n(u_1+u_n)/2\\). Luyện dạng tìm \\(u_1, d, n\\) từ hệ phương trình.",
+  GP: "Ghi nhớ \\(u_n = u_1 q^{n-1}\\) và \\(S_n = u_1(1-q^n)/(1-q)\\). Chú ý tính chất \\(u_n^2 = u_{n-1} \\cdot u_{n+1}\\).",
+  SUM: "Luyện tính tổng CSC/CSN, tìm \\(n\\), và sử dụng quan hệ \\(u_n = S_n - S_{n-1}\\).",
+  INF: "Nhớ điều kiện hội tụ \\(|q|<1\\) và công thức \\(S = u_1/(1-q)\\). Phân biệt hội tụ và phân kỳ.",
+  APP: "Luyện bài toán lãi kép, khấu hao, tăng trưởng. Xác định đúng AP hay GP cho từng tình huống.",
+  REC: "Luyện dãy truy hồi \\(u_{n+1} = a u_n + b\\) và nhận dạng quy luật (chính phương, Fibonacci, xen kẽ)."
+};
+
+const PRIORITY_STEPS = {
+  AP: [
+    "Viết ra giấy nhớ 2 công thức: \\(u_n = u_1+(n-1)d\\) và \\(S_n = \\dfrac{n(u_1+u_n)}{2}\\) — làm đi làm lại 3 lần.",
+    "Luyện dạng cơ bản: cho \\(u_1, d\\) → tìm \\(u_n\\) và \\(S_n\\). Sau đó đảo ngược: cho 2 số hạng bất kỳ → tìm \\(u_1, d\\).",
+    "Chú ý đơn vị của \\(n\\): \\(u_n\\) là số hạng thứ \\(n\\) — KHÔNG nhầm với \\(n-1\\) trong công thức.",
+    "Luyện thêm dạng 3 số hạng liên tiếp của CSC: \\(u_{n+1}+u_{n-1} = 2u_n\\)."
+  ],
+  GP: [
+    "Học 2 công thức: \\(u_n = u_1 q^{n-1}\\) và \\(S_n = u_1\\dfrac{1-q^n}{1-q}\\).",
+    "Nhớ tính chất đặc trưng 3 số hạng liên tiếp: \\(u_{n-1} \\cdot u_{n+1} = u_n^2\\).",
+    "Luyện dạng tìm \\(q\\) từ 2 số hạng (giải phương trình \\(q^k = \\text{const}\\)) — chú ý điều kiện \\(q>0\\) nếu đề cho số hạng dương.",
+    "Chú ý: nếu \\(q=1\\) thì \\(S_n = n \\cdot u_1\\) — đừng dùng công thức chia \\(1-q\\)."
+  ],
+  SUM: [
+    "Luyện 2 dạng công thức tổng: \\(S_n = \\dfrac{n(u_1+u_n)}{2}\\) (khi biết số hạng cuối) và \\(S_n = \\dfrac{n[2u_1+(n-1)d]}{2}\\) (khi chỉ biết \\(u_1, d\\)).",
+    "Nhớ quan hệ quan trọng: \\(u_n = S_n - S_{n-1}\\) — dùng khi đề CHO \\(S_n\\).",
+    "Kiểm tra số hạng: đếm đúng \\(n\\) (kể cả số đầu và số cuối).",
+    "Luyện dạng 'tổng các số lẻ', 'tổng các số chẵn', 'tổng các số chia hết cho k' — xác định \\(u_1\\) và \\(u_n\\) đúng trước khi áp dụng công thức."
+  ],
+  INF: [
+    "Ghi nhớ ĐIỀU KIỆN: \\(|q| < 1\\) mới có tổng vô hạn. Nếu \\(|q| \\geq 1\\), tổng không tồn tại.",
+    "Công thức: \\(S = \\dfrac{u_1}{1-q}\\) — chỉ áp dụng cho CSN, KHÔNG áp dụng cho CSC.",
+    "Luyện phân biệt: dãy \\(1, 1, 1, \\ldots\\) (không hội tụ) vs \\(1, \\tfrac12, \\tfrac14, \\ldots\\) (hội tụ).",
+    "Luyện dạng ngược: cho \\(S\\) và \\(u_1\\), tìm \\(q\\)."
+  ],
+  APP: [
+    "Phân biệt RÕ: tăng/giảm ĐỀU một lượng cố định → CSC; tăng/giảm THEO % → CSN.",
+    "Lãi kép: \\(A = P(1+r)^n\\) — chú ý \\(n\\) là SỐ KỲ. Nếu lãi gộp \\(k\\) lần/năm thì \\(n\\) = số năm × \\(k\\), \\(r\\) = lãi suất năm / \\(k\\).",
+    "Khấu hao: \\(V_n = V_1(1-r)^{n-1}\\) (nếu \\(V_1\\) là năm đầu) hoặc \\(V_n = V_1(1-r)^n\\) (nếu \\(V_1\\) là giá ban đầu) — đọc kỹ đề.",
+    "Luyện dạng tìm thời gian \\(n\\): dùng logarit hoặc thử đáp án."
+  ],
+  REC: [
+    "Luyện tính từng số hạng THEO THỨ TỰ — không nhảy bước, dễ sai nếu nhảy.",
+    "Nhận dạng quy luật: tính sai phân (\\(u_{n+1}-u_n\\)), tỉ số (\\(u_{n+1}/u_n\\)), hoặc nhận ra dạng đặc biệt (chính phương \\(n^2\\), Fibonacci).",
+    "Với dãy truy hồi \\(u_{n+1} = a u_n + b\\): tính lần lượt \\(u_1, u_2, u_3, \\ldots\\), không cố tìm công thức tường minh.",
+    "Kiểm tra lại bằng cách thay ngược kết quả vào công thức truy hồi."
+  ]
+};
+
+const SAT_SETS = {
+  1: {
+    name: "Bộ 1 — Foundations",
+    desc: "Cấp số cộng & cấp số nhân cơ bản: số hạng tổng quát, công sai, công bội, tổng cơ bản, nhận dạng dãy.",
+    questions: [
+      {q:"An arithmetic sequence has first term 5 and common difference 3. What is the 8th term?",opts:["\\(24\\)","\\(26\\)","\\(28\\)","\\(29\\)"],ans:1,topic:"AP",exp:"\\(u_8 = 5 + 7(3) = 26\\).",review:"Ôn lại mục II — Số hạng tổng quát CSC"},
+      {q:"A geometric sequence has first term 3 and common ratio 2. What is the 5th term?",opts:["\\(24\\)","\\(32\\)","\\(48\\)","\\(96\\)"],ans:2,topic:"GP",exp:"\\(u_5 = 3 \\cdot 2^4 = 48\\).",review:"Ôn lại mục III — Số hạng tổng quát CSN"},
+      {q:"What is the common difference of the arithmetic sequence 7, 11, 15, 19, ...?",opts:["\\(3\\)","\\(4\\)","\\(5\\)","\\(7\\)"],ans:1,topic:"AP",exp:"\\(d = 4\\).",review:"Ôn lại mục II — Công sai \\(d\\)"},
+      {q:"What is the common ratio of the geometric sequence 2, 6, 18, 54, ...?",opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(6\\)"],ans:1,topic:"GP",exp:"\\(q = 3\\).",review:"Ôn lại mục III — Công bội \\(q\\)"},
+      {q:"Find the sum of the first 10 terms of the arithmetic sequence 2, 4, 6, 8, ...",opts:["\\(90\\)","\\(100\\)","\\(110\\)","\\(120\\)"],ans:2,topic:"SUM",exp:"\\(S_{10} = \\dfrac{10(2+20)}{2}=110\\).",review:"Ôn lại mục II — Tổng \\(S_n\\)"},
+      {q:"Which of the following sequences is arithmetic?",opts:["\\(1,2,4,8\\)","\\(1,3,5,7\\)","\\(1,4,9,16\\)","\\(1,1,2,3\\)"],ans:1,topic:"AP",exp:"\\(1,3,5,7\\) có \\(d=2\\).",review:"Ôn lại mục V — Nhận dạng CSC"},
+      {q:"Which of the following sequences is geometric?",opts:["\\(3,6,9,12\\)","\\(3,6,12,24\\)","\\(2,4,6,8\\)","\\(1,4,9,16\\)"],ans:1,topic:"GP",exp:"\\(3,6,12,24\\) có \\(q=2\\).",review:"Ôn lại mục V — Nhận dạng CSN"},
+      {q:"\\(u_1=4\\) and \\(u_{n+1}=u_n+5\\). What is \\(u_6\\)?",opts:["\\(24\\)","\\(25\\)","\\(29\\)","\\(34\\)"],ans:2,topic:"REC",exp:"\\(u_6 = 4 + 5 \\cdot 5 = 29\\).",review:"Ôn lại mục I — Truy hồi"},
+      {q:"\\(u_1=2\\) and \\(u_{n+1}=3u_n\\). What is \\(u_4\\)?",opts:["\\(18\\)","\\(27\\)","\\(54\\)","\\(162\\)"],ans:2,topic:"REC",exp:"\\(u_4 = 2 \\cdot 3^3 = 54\\).",review:"Ôn lại mục I — Truy hồi"},
+      {q:"In the AP 5, 8, 11, ..., which term equals 53?",opts:["\\(15\\)","\\(16\\)","\\(17\\)","\\(18\\)"],ans:2,topic:"AP",exp:"\\(5+(n-1)3 = 53 \\Rightarrow n = 17\\).",review:"Ôn lại mục II — Tìm \\(n\\)"},
+      {q:"A GP has \\(u_1=2\\) and \\(q=3\\). Find \\(u_6\\).",opts:["\\(162\\)","\\(243\\)","\\(486\\)","\\(729\\)"],ans:2,topic:"GP",exp:"\\(u_6 = 2 \\cdot 3^5 = 486\\).",review:"Ôn lại mục III — Số hạng tổng quát"},
+      {q:"Find \\(3+6+9+\\cdots+30\\).",opts:["\\(150\\)","\\(155\\)","\\(165\\)","\\(180\\)"],ans:2,topic:"SUM",exp:"\\(n=10\\). \\(S = \\dfrac{10(3+30)}{2} = 165\\).",review:"Ôn lại mục II — Tổng \\(S_n\\)"},
+      {q:"Sum of first 5 terms of \\(1, 2, 4, 8, \\ldots\\)",opts:["\\(15\\)","\\(16\\)","\\(31\\)","\\(32\\)"],ans:2,topic:"SUM",exp:"\\(S_5 = 31\\).",review:"Ôn lại mục III — Tổng CSN"},
+      {q:"Job pays \\$40,000 (year 1), +\\(\\$1{,}500\\)/year. Salary in year 6?",opts:["\\(\\$46{,}000\\)","\\(\\$47{,}500\\)","\\(\\$48{,}000\\)","\\(\\$49{,}000\\)"],ans:1,topic:"APP",exp:"\\(u_6 = 40000+5(1500)=47500\\).",review:"Ôn lại mục IV — Ứng dụng CSC"},
+      {q:"Bacteria: 100 cells, double every hour. After 5 hours?",opts:["\\(500\\)","\\(1600\\)","\\(3200\\)","\\(6400\\)"],ans:2,topic:"APP",exp:"\\(u_6 = 100 \\cdot 2^5 = 3200\\).",review:"Ôn lại mục IV — Ứng dụng CSN"},
+      {q:"If \\(5, x, 13\\) are in AP, what is \\(x\\)?",opts:["\\(8\\)","\\(9\\)","\\(10\\)","\\(11\\)"],ans:1,topic:"AP",exp:"\\(x = (5+13)/2 = 9\\).",review:"Ôn lại mục II — Tính chất CSC"},
+      {q:"If \\(4, x, 16\\) are in GP with \\(x>0\\), what is \\(x\\)?",opts:["\\(6\\)","\\(8\\)","\\(10\\)","\\(12\\)"],ans:1,topic:"GP",exp:"\\(x^2 = 64 \\Rightarrow x=8\\).",review:"Ôn lại mục III — Tính chất CSN"},
+      {q:"Find \\(6 + 3 + 1.5 + 0.75 + \\cdots\\)",opts:["\\(9\\)","\\(10\\)","\\(12\\)","\\(15\\)"],ans:2,topic:"INF",exp:"\\(S = 6/(1-1/2) = 12\\).",review:"Ôn lại mục III — Tổng vô hạn"},
+      {q:"In an AP, \\(u_3=11\\) and \\(u_7=23\\). Find \\(d\\).",opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(6\\)"],ans:1,topic:"AP",exp:"\\(4d = 12 \\Rightarrow d = 3\\).",review:"Ôn lại mục II — Công sai"},
+      {q:"GP positive terms: \\(u_2=6\\) and \\(u_4=54\\). Find \\(q\\).",opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(9\\)"],ans:1,topic:"GP",exp:"\\(q^2 = 9 \\Rightarrow q = 3\\).",review:"Ôn lại mục III — Công bội"},
+      {q:"Theater: row 1 = 20 seats, +4 each row. Row 10?",opts:["\\(52\\)","\\(54\\)","\\(56\\)","\\(60\\)"],ans:2,topic:"APP",exp:"\\(u_{10} = 20 + 9(4) = 56\\).",review:"Ôn lại mục IV — Ứng dụng CSC"},
+      {q:"\\$1,000 at 4% compounded annually. Value after 3 years?",opts:["\\(\\$1{,}120.00\\)","\\(\\$1{,}124.86\\)","\\(\\$1{,}125.00\\)","\\(\\$1{,}200.00\\)"],ans:1,topic:"APP",exp:"\\(1000(1.04)^3 \\approx 1124.86\\).",review:"Ôn lại mục IV — Lãi kép"},
+      {q:"Town 10,000 people, +500/year. Population after 8 years?",opts:["\\(12{,}000\\)","\\(13{,}500\\)","\\(14{,}000\\)","\\(14{,}500\\)"],ans:2,topic:"APP",exp:"\\(10000 + 8(500) = 14000\\).",review:"Ôn lại mục IV — Tăng tuyến tính"},
+      {q:"Car \\$20,000 depreciates 10%/year. Value after 2 years?",opts:["\\(\\$16{,}000\\)","\\(\\$16{,}200\\)","\\(\\$16{,}400\\)","\\(\\$18{,}000\\)"],ans:1,topic:"APP",exp:"\\(20000 \\cdot 0.9^2 = 16200\\).",review:"Ôn lại mục IV — Khấu hao"},
+      {q:"Is \\(2, 4, 8, 16, \\ldots\\) arithmetic or geometric?",opts:["Arithmetic","Geometric","Both","Neither"],ans:1,topic:"GP",exp:"Công bội \\(q=2\\).",review:"Ôn lại mục V — Nhận dạng"},
+      {q:"Find \\(1+2+3+\\cdots+20\\).",opts:["\\(190\\)","\\(200\\)","\\(210\\)","\\(220\\)"],ans:2,topic:"SUM",exp:"\\(S = 210\\).",review:"Ôn lại mục II — Tổng CSC"},
+      {q:"Find \\(2+4+8+16+32\\).",opts:["\\(58\\)","\\(60\\)","\\(62\\)","\\(64\\)"],ans:2,topic:"SUM",exp:"\\(S_5 = 62\\).",review:"Ôn lại mục III — Tổng CSN"},
+      {q:"Common difference of \\(\\dfrac12, 1, \\dfrac32, 2, \\ldots\\)",opts:["\\(\\dfrac14\\)","\\(\\dfrac12\\)","\\(1\\)","\\(2\\)"],ans:1,topic:"AP",exp:"\\(d = 1/2\\).",review:"Ôn lại mục II — Công sai"},
+      {q:"Common ratio of \\(\\dfrac13, \\dfrac19, \\dfrac{1}{27}, \\ldots\\)",opts:["\\(\\dfrac12\\)","\\(\\dfrac13\\)","\\(\\dfrac16\\)","\\(3\\)"],ans:1,topic:"GP",exp:"\\(q = 1/3\\).",review:"Ôn lại mục III — Công bội"},
+      {q:"AP: \\(u_1=3\\), \\(u_{10}=30\\). Find \\(S_{10}\\).",opts:["\\(150\\)","\\(160\\)","\\(165\\)","\\(180\\)"],ans:2,topic:"SUM",exp:"\\(S_{10} = 165\\).",review:"Ôn lại mục II — Tổng \\(S_n\\)"}
+    ]
+  },
+  2: {
+    name: "Bộ 2 — Intermediate",
+    desc: "Bài toán ngược tìm \\(u_1, d, q\\), tổng vô hạn, lãi kép, khấu hao, bài toán thực tế nhiều bước.",
+    questions: [
+      {q:"AP: \\(u_5=17\\), \\(u_{12}=45\\). Find \\(u_1\\).",opts:["\\(1\\)","\\(2\\)","\\(3\\)","\\(5\\)"],ans:0,topic:"AP",exp:"\\(d=4, u_1=1\\).",review:"Ôn lại mục II — Hệ phương trình"},
+      {q:"Find \\(1+3+5+\\cdots+39\\).",opts:["\\(380\\)","\\(390\\)","\\(400\\)","\\(420\\)"],ans:2,topic:"SUM",exp:"\\(n=20\\). \\(S = 400\\).",review:"Ôn lại mục II — Tổng CSC"},
+      {q:"GP positive: \\(u_1=5\\), \\(u_4=40\\). Find \\(q\\).",opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(8\\)"],ans:0,topic:"GP",exp:"\\(q^3=8 \\Rightarrow q=2\\).",review:"Ôn lại mục III — Công bội"},
+      {q:"Find \\(10 + 2 + 0.4 + 0.08 + \\cdots\\)",opts:["\\(12\\)","\\(12.5\\)","\\(13\\)","\\(15\\)"],ans:1,topic:"INF",exp:"\\(S = 10/(1-0.2) = 12.5\\).",review:"Ôn lại mục III — Tổng vô hạn"},
+      {q:"Sum of odd numbers from 1 to 39.",opts:["\\(361\\)","\\(380\\)","\\(400\\)","\\(441\\)"],ans:2,topic:"SUM",exp:"\\(20^2 = 400\\).",review:"Ôn lại mục II — Tổng số lẻ"},
+      {q:"\\$5,000 at 6% compounded annually for 10 years ≈",opts:["\\(\\$8{,}000\\)","\\(\\$8{,}500\\)","\\(\\$8{,}954\\)","\\(\\$9{,}500\\)"],ans:2,topic:"APP",exp:"\\(5000(1.06)^{10} \\approx 8954\\).",review:"Ôn lại mục IV — Lãi kép"},
+      {q:"Find \\(1 + \\dfrac12 + \\dfrac14 + \\dfrac18 + \\dfrac{1}{16}\\).",opts:["\\(\\dfrac{15}{8}\\)","\\(\\dfrac{31}{16}\\)","\\(2\\)","\\(\\dfrac{33}{16}\\)"],ans:1,topic:"SUM",exp:"\\(S_5 = 31/16\\).",review:"Ôn lại mục III — Tổng CSN"},
+      {q:"3 numbers in AP: sum 21, product 280. Largest?",opts:["\\(7\\)","\\(9\\)","\\(10\\)","\\(11\\)"],ans:2,topic:"AP",exp:"\\(7-d, 7, 7+d\\). \\(d^2=9\\). Largest: 10.",review:"Ôn lại mục II — 3 số hạng CSC"},
+      {q:"\\(u_1=1\\), \\(u_{n+1}=2u_n+3\\). Find \\(u_5\\).",opts:["\\(29\\)","\\(45\\)","\\(61\\)","\\(77\\)"],ans:2,topic:"REC",exp:"\\(u_5=61\\).",review:"Ôn lại mục I — Truy hồi"},
+      {q:"Pop 200,000 grows 3%/year. After 10 years ≈",opts:["\\(220{,}000\\)","\\(250{,}000\\)","\\(268{,}783\\)","\\(300{,}000\\)"],ans:2,topic:"APP",exp:"\\(200000 \\cdot 1.03^{10} \\approx 268{,}783\\).",review:"Ôn lại mục IV — Tăng mũ"},
+      {q:"Car \\$40,000 depreciates 15%/year. After 5 years ≈",opts:["\\(15{,}000\\)","\\(17{,}748\\)","\\(20{,}000\\)","\\(22{,}000\\)"],ans:1,topic:"APP",exp:"\\(40000 \\cdot 0.85^5 \\approx 17{,}748\\).",review:"Ôn lại mục IV — Khấu hao"},
+      {q:"Insert 4 arithmetic means between 3 and 23.",opts:["\\(7,11,15,19\\)","\\(8,13,18,23\\)","\\(6,10,14,18\\)","\\(7,12,17,22\\)"],ans:0,topic:"AP",exp:"\\(d=4\\). Means: 7, 11, 15, 19.",review:"Ôn lại mục II — Chèn số hạng"},
+      {q:"3 positive in GP: sum 26, product 216. Smallest?",opts:["\\(1\\)","\\(2\\)","\\(3\\)","\\(6\\)"],ans:1,topic:"GP",exp:"2, 6, 18. Smallest: 2.",review:"Ôn lại mục III — 3 số hạng CSN"},
+      {q:"AP: \\(S_n = n^2 + 3n\\). Find \\(u_5\\).",opts:["\\(10\\)","\\(12\\)","\\(14\\)","\\(16\\)"],ans:1,topic:"AP",exp:"\\(u_5 = S_5 - S_4 = 40-28=12\\).",review:"Ôn lại mục II — Quan hệ \\(u_n = S_n - S_{n-1}\\)"},
+      {q:"GP \\(u_n = 4 \\cdot (-1/2)^{n-1}\\). Find \\(S_5\\).",opts:["\\(\\dfrac{11}{4}\\)","\\(3\\)","\\(\\dfrac{13}{4}\\)","\\(\\dfrac{7}{2}\\)"],ans:0,topic:"SUM",exp:"\\(S_5 = 11/4\\).",review:"Ôn lại mục III — Tổng CSN"},
+      {q:"Find \\(4 + \\dfrac83 + \\dfrac{16}{9} + \\cdots\\)",opts:["\\(8\\)","\\(10\\)","\\(12\\)","\\(16\\)"],ans:2,topic:"INF",exp:"\\(S = 4/(1-2/3) = 12\\).",review:"Ôn lại mục III — Tổng vô hạn"},
+      {q:"Ball drops 10 m, bounces 60% each time. Total distance ≈",opts:["\\(25\\text{ m}\\)","\\(30\\text{ m}\\)","\\(35\\text{ m}\\)","\\(40\\text{ m}\\)"],ans:3,topic:"APP",exp:"\\(10 + 2\\cdot\\dfrac{6}{1-0.6} = 40\\) m.",review:"Ôn lại mục IV — Ứng dụng tổng vô hạn"},
+      {q:"AP: \\(u_3 + u_5 = 16\\), \\(u_7 = 12\\). Find \\(u_1\\).",opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(5\\)"],ans:2,topic:"AP",exp:"\\(u_1 = 4\\).",review:"Ôn lại mục II — Hệ phương trình"},
+      {q:"GP: \\(u_1 + u_2 = 12\\), \\(u_2 + u_3 = 24\\). Find \\(u_1\\).",opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(6\\)"],ans:2,topic:"GP",exp:"\\(q=2, u_1=4\\).",review:"Ôn lại mục III — Hệ phương trình"},
+      {q:"Bacteria double every 20 years. 5,000 initial, after 100 years?",opts:["\\(80{,}000\\)","\\(160{,}000\\)","\\(320{,}000\\)","\\(500{,}000\\)"],ans:1,topic:"APP",exp:"\\(5000 \\cdot 2^5 = 160000\\).",review:"Ôn lại mục IV — Tăng mũ"},
+      {q:"\\$10,000 at 5% semi-annually for 4 years ≈",opts:["\\(\\$12{,}000\\)","\\(\\$12{,}184\\)","\\(\\$12{,}500\\)","\\(\\$13{,}000\\)"],ans:1,topic:"APP",exp:"\\(10000(1.025)^8 \\approx 12184\\).",review:"Ôn lại mục IV — Lãi kép"},
+      {q:"Salary \\$50,000 +5%/year. Year 5 ≈",opts:["\\(\\$60{,}000\\)","\\(\\$60{,}775\\)","\\(\\$62{,}000\\)","\\(\\$65{,}000\\)"],ans:1,topic:"APP",exp:"\\(50000 \\cdot 1.05^4 \\approx 60775\\).",review:"Ôn lại mục IV — Tăng mũ"},
+      {q:"Theater row 1 = 20 seats, +2/row, 30 rows. Total?",opts:["\\(1200\\)","\\(1350\\)","\\(1470\\)","\\(1500\\)"],ans:2,topic:"APP",exp:"\\(S_{30} = 1470\\).",review:"Ôn lại mục IV — Ứng dụng CSC"},
+      {q:"Find \\(5 + 8 + 11 + \\cdots + 50\\).",opts:["\\(400\\)","\\(420\\)","\\(440\\)","\\(460\\)"],ans:2,topic:"SUM",exp:"\\(n=16\\). \\(S=440\\).",review:"Ôn lại mục II — Tổng CSC"},
+      {q:"GP \\(q=3\\). Find \\(\\dfrac{u_1+u_2}{u_2}\\).",opts:["\\(\\dfrac23\\)","\\(\\dfrac34\\)","\\(\\dfrac43\\)","\\(\\dfrac32\\)"],ans:2,topic:"GP",exp:"\\(= 4/3\\).",review:"Ôn lại mục III — Tính chất CSN"},
+      {q:"Equipment \\$30,000 depreciates 8%/year. After 3 years ≈",opts:["\\(\\$22{,}000\\)","\\(\\$23{,}361\\)","\\(\\$24{,}000\\)","\\(\\$25{,}000\\)"],ans:1,topic:"APP",exp:"\\(30000 \\cdot 0.92^3 \\approx 23361\\).",review:"Ôn lại mục IV — Khấu hao"},
+      {q:"\\(u_n = 7 - 3n\\). Find \\(S_{10}\\).",opts:["\\(-95\\)","\\(-90\\)","\\(-85\\)","\\(-80\\)"],ans:0,topic:"SUM",exp:"\\(S_{10} = -95\\).",review:"Ôn lại mục II — Tổng CSC"},
+      {q:"Infinite GP finite sum when:",opts:["\\(q > 0\\)","\\(q < 1\\)","\\(|q| < 1\\)","\\(q > 1\\)"],ans:2,topic:"INF",exp:"Điều kiện: \\(|q| < 1\\).",review:"Ôn lại mục III — Điều kiện hội tụ"},
+      {q:"3 numbers in AP sum 15. Adding 1, 3, 9 gives GP. Find positive \\(d\\).",opts:["\\(1\\)","\\(2\\)","\\(3\\)","\\(4\\)"],ans:1,topic:"AP",exp:"\\(5-d, 5, 5+d \\to 6-d, 8, 14+d\\). \\(d=2\\).",review:"Ôn lại mục V — Liên hệ CSC & CSN"},
+      {q:"\\(u_n = 3n-2\\). Find \\(S_n\\).",opts:["\\(\\dfrac{n(3n-1)}{2}\\)","\\(\\dfrac{n(3n+1)}{2}\\)","\\(\\dfrac{3n^2}{2}\\)","\\(\\dfrac{n(3n-2)}{2}\\)"],ans:0,topic:"SUM",exp:"\\(S_n = \\dfrac{n(3n-1)}{2}\\).",review:"Ôn lại mục II — Công thức tổng"}
+    ]
+  },
+  3: {
+    name: "Bộ 3 — Advanced",
+    desc: "Bài toán hỗn hợp CSC-CSN, tổng vô hạn, tối ưu, chứng minh tính chất, bài toán thực tế nâng cao.",
+    questions: [
+      {q:"AP: \\(S_{10}=100\\), \\(S_{20}=400\\). Find \\(u_5\\).",opts:["\\(7\\)","\\(8\\)","\\(9\\)","\\(10\\)"],ans:2,topic:"AP",exp:"\\(d=2, u_1=1\\). \\(u_5=9\\).",review:"Ôn lại mục II — Hệ phương trình \\(S_n\\)"},
+      {q:"GP: \\(u_1=5\\), \\(u_3=20\\). Find \\(u_5\\).",opts:["\\(40\\)","\\(60\\)","\\(80\\)","\\(100\\)"],ans:2,topic:"GP",exp:"\\(u_5 = 80\\).",review:"Ôn lại mục III — Tính chất CSN"},
+      {q:"Find \\(4 + 2 + 1 + \\tfrac12 + \\cdots\\)",opts:["\\(6\\)","\\(7\\)","\\(8\\)","\\(9\\)"],ans:2,topic:"INF",exp:"\\(S = 8\\).",review:"Ôn lại mục III — Tổng vô hạn"},
+      {q:"\\(u_n = 5n - 2\\). Find \\(S_{20}\\).",opts:["\\(990\\)","\\(1000\\)","\\(1010\\)","\\(1020\\)"],ans:2,topic:"SUM",exp:"\\(S_{20} = 1010\\).",review:"Ôn lại mục II — Tổng CSC"},
+      {q:"7th term of \\(1, 4, 9, 16, 25, \\ldots\\)?",opts:["\\(36\\)","\\(42\\)","\\(49\\)","\\(56\\)"],ans:2,topic:"REC",exp:"\\(u_n = n^2\\), \\(u_7 = 49\\).",review:"Ôn lại mục I — Nhận dạng quy luật"},
+      {q:"Bacteria triple every 4h. Starting 50, after 24h?",opts:["\\(3600\\)","\\(10{,}800\\)","\\(32{,}400\\)","\\(36{,}450\\)"],ans:3,topic:"APP",exp:"\\(50 \\cdot 3^6 = 36450\\).",review:"Ôn lại mục IV — Tăng mũ"},
+      {q:"Car \\$30,000 depreciates 20%/year. After 3 years?",opts:["\\(\\$12{,}000\\)","\\(\\$15{,}360\\)","\\(\\$18{,}000\\)","\\(\\$24{,}000\\)"],ans:1,topic:"APP",exp:"\\(30000 \\cdot 0.8^3 = 15360\\).",review:"Ôn lại mục IV — Khấu hao"},
+      {q:"\\(u_1=1\\), \\(u_{n+1}=2u_n+1\\). Find \\(u_4\\).",opts:["\\(11\\)","\\(13\\)","\\(15\\)","\\(17\\)"],ans:2,topic:"REC",exp:"\\(u_4 = 15\\).",review:"Ôn lại mục I — Truy hồi"},
+      {q:"GP \\(u_n = 3 \\cdot (-2)^{n-1}\\). Find \\(S_4\\).",opts:["\\(-15\\)","\\(-9\\)","\\(9\\)","\\(15\\)"],ans:0,topic:"SUM",exp:"\\(S_4 = -15\\).",review:"Ôn lại mục III — Tổng CSN"},
+      {q:"3 positive in GP: sum 21, product 216. Largest?",opts:["\\(6\\)","\\(9\\)","\\(12\\)","\\(18\\)"],ans:2,topic:"GP",exp:"3, 6, 12. Largest: 12.",review:"Ôn lại mục III — 3 số hạng CSN"},
+      {q:"AP: \\(u_1 + u_5 = 20\\), \\(u_3 + u_7 = 32\\). Find \\(u_1\\).",opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(5\\)"],ans:2,topic:"AP",exp:"\\(d=3, u_1=4\\).",review:"Ôn lại mục II — Hệ phương trình"},
+      {q:"GP \\(u_1=8, q=1/2\\). Find \\(S_\\infty\\).",opts:["\\(12\\)","\\(14\\)","\\(16\\)","\\(20\\)"],ans:2,topic:"INF",exp:"\\(S = 16\\).",review:"Ôn lại mục III — Tổng vô hạn"},
+      {q:"AP: \\(S_n = n^2 + 2n\\). Find \\(u_{10}\\).",opts:["\\(19\\)","\\(21\\)","\\(23\\)","\\(25\\)"],ans:1,topic:"AP",exp:"\\(u_{10} = S_{10} - S_9 = 21\\).",review:"Ôn lại mục II — Quan hệ \\(u_n = S_n - S_{n-1}\\)"},
+      {q:"Find \\(3 + 7 + 11 + \\cdots + 79\\).",opts:["\\(780\\)","\\(800\\)","\\(820\\)","\\(840\\)"],ans:2,topic:"SUM",exp:"\\(n=20\\). \\(S = 820\\).",review:"Ôn lại mục II — Tổng CSC"},
+      {q:"GP: \\(S_3 = 14\\), \\(S_6 = 126\\). Find \\(u_1\\).",opts:["\\(1\\)","\\(2\\)","\\(3\\)","\\(4\\)"],ans:1,topic:"SUM",exp:"\\(q=2, u_1=2\\).",review:"Ôn lại mục III — Hệ phương trình"},
+      {q:"\\$5,000 at 8%/year. Full years until > \\$10,000?",opts:["\\(8\\)","\\(9\\)","\\(10\\)","\\(11\\)"],ans:2,topic:"APP",exp:"\\(1.08^n > 2 \\Rightarrow n \\geq 10\\).",review:"Ôn lại mục IV — Lãi kép"},
+      {q:"AP: \\(u_5 = 3u_2\\), \\(u_2 + u_4 = 20\\). Find \\(u_1\\).",opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(5\\)"],ans:0,topic:"AP",exp:"\\(d=2u_1\\). \\(u_1 + 4u_1 = 10 \\Rightarrow u_1=2\\).",review:"Ôn lại mục II — Hệ phương trình"},
+      {q:"Infinite GP sum 12, \\(u_1=4\\). Find \\(q\\).",opts:["\\(\\dfrac12\\)","\\(\\dfrac23\\)","\\(\\dfrac34\\)","\\(\\dfrac45\\)"],ans:1,topic:"INF",exp:"\\(q = 2/3\\).",review:"Ôn lại mục III — Tổng vô hạn"},
+      {q:"AP: \\(u_3 + u_8 = 25\\), \\(u_5 = 12\\). Find \\(u_1\\).",opts:["\\(6\\)","\\(7\\)","\\(8\\)","\\(9\\)"],ans:2,topic:"AP",exp:"\\(d=1, u_1=8\\).",review:"Ôn lại mục II — Hệ phương trình"},
+      {q:"GP: \\(u_1+u_2+u_3=21\\), \\(u_1=3\\). Find \\(q>0, q \\neq 1\\).",opts:["\\(1\\)","\\(2\\)","\\(3\\)","\\(4\\)"],ans:1,topic:"GP",exp:"\\(q^2+q-6=0 \\Rightarrow q=2\\).",review:"Ôn lại mục III — Tìm \\(q\\)"},
+      {q:"5 numbers in AP, sum 50, first 2. 5th term?",opts:["\\(14\\)","\\(16\\)","\\(18\\)","\\(20\\)"],ans:2,topic:"AP",exp:"\\(u_5 = 18\\).",review:"Ôn lại mục II — Tổng CSC"},
+      {q:"\\$2,000 at 5%/year. Smallest \\(n\\) with value ≥ \\$2,431?",opts:["\\(3\\)","\\(4\\)","\\(5\\)","\\(6\\)"],ans:1,topic:"APP",exp:"\\(n = 4\\).",review:"Ôn lại mục IV — Lãi kép"},
+      {q:"\\(u_n = 25 - 3n\\). Sum of all positive terms?",opts:["\\(84\\)","\\(88\\)","\\(92\\)","\\(96\\)"],ans:2,topic:"SUM",exp:"\\(n=1..8\\). \\(S_8 = 92\\).",review:"Ôn lại mục II — Tổng số dương"},
+      {q:"GP: \\(5, 10, 20, \\ldots\\). Smallest \\(n\\) with \\(u_n > 1000\\)?",opts:["\\(8\\)","\\(9\\)","\\(10\\)","\\(11\\)"],ans:1,topic:"GP",exp:"\\(2^{n-1} > 200 \\Rightarrow n \\geq 9\\).",review:"Ôn lại mục III — Số hạng tổng quát"},
+      {q:"AP: \\(S_n = 2n^2 + 3n\\). Find \\(d\\).",opts:["\\(2\\)","\\(3\\)","\\(4\\)","\\(5\\)"],ans:2,topic:"AP",exp:"\\(u_n = 4n+1 \\Rightarrow d=4\\).",review:"Ôn lại mục II — Tìm \\(d\\) từ \\(S_n\\)"},
+      {q:"GP \\(u_1=1/2, q=1/2\\). Find \\(S_\\infty\\).",opts:["\\(\\dfrac12\\)","\\(1\\)","\\(\\dfrac32\\)","\\(2\\)"],ans:1,topic:"INF",exp:"\\(S = 1\\).",review:"Ôn lại mục III — Tổng vô hạn"},
+      {q:"3 numbers in AP: first + last = 20, middle = 10. Sum?",opts:["\\(25\\)","\\(28\\)","\\(30\\)","\\(32\\)"],ans:2,topic:"AP",exp:"\\(a+b+c = 30\\).",review:"Ôn lại mục II — Tính chất CSC"},
+      {q:"3 terms in GP: first + third = 40, middle = 12. Smaller first term?",opts:["\\(4\\)","\\(8\\)","\\(12\\)","\\(36\\)"],ans:0,topic:"GP",exp:"\\(ac = 144, a+c=40\\). Smaller: 4.",review:"Ôn lại mục III — Tính chất CSN"},
+      {q:"Sum of all 2-digit numbers divisible by 7.",opts:["\\(700\\)","\\(728\\)","\\(742\\)","\\(756\\)"],ans:1,topic:"SUM",exp:"\\(14..98\\), \\(n=13\\). \\(S=728\\).",review:"Ôn lại mục II — Tổng CSC"},
+      {q:"GP: \\(u_1=2, u_2=2/3\\). Find \\(S_\\infty\\).",opts:["\\(2\\)","\\(2.5\\)","\\(3\\)","\\(4\\)"],ans:2,topic:"INF",exp:"\\(q=1/3\\). \\(S = 3\\).",review:"Ôn lại mục III — Tổng vô hạn"},
+      {q:"AP: \\(u_2=8\\), \\(u_5=20\\). Find \\(S_{10}\\).",opts:["\\(200\\)","\\(210\\)","\\(220\\)","\\(230\\)"],ans:2,topic:"SUM",exp:"\\(d=4, u_1=4\\). \\(u_{10}=40\\). \\(S_{10}=\\dfrac{10(4+40)}{2}=220\\).",review:"Ôn lại mục II — Tổng CSC"}
+    ]
+  }
+};
+
+const TEST_DURATION = 45 * 60;
+let testState = null;
+let testTimerInterval = null;
+
+function renderSatSetSelector(){
+  const c = document.getElementById('satSetSelector');
+  c.innerHTML = '';
+  Object.keys(SAT_SETS).forEach(k=>{
+    const s = SAT_SETS[k];
+    const card = document.createElement('div');
+    card.className = 'set-card';
+    card.onclick = () => startSetTest(parseInt(k));
+    card.innerHTML = `
+      <div class="set-badge">BỘ ${k}</div>
+      <h4>${s.name}</h4>
+      <p>${s.desc}</p>
+      <div class="set-meta">
+        <span><strong>30</strong> câu</span>
+        <span><strong>45:00</strong> phút</span>
+        <span><strong>A–D</strong></span>
+      </div>
+      <div class="set-start">▶ Bắt đầu làm bài →</div>`;
+    c.appendChild(card);
+  });
+}
+
+function startSetTest(setNum){
+  testState = {
+    setNum, current: 0,
+    answers: new Array(30).fill(null),
+    timeLeft: TEST_DURATION,
+    submitted: false
+  };
+  switchTab('sat');
+  showScreen('test');
+  document.getElementById('testSetName').textContent = SAT_SETS[setNum].name;
+  renderNavGrid();
+  renderTestQuestion();
+  startTestTimer();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function startTestTimer(){
+  if(testTimerInterval) clearInterval(testTimerInterval);
+  updateTimerDisplay();
+  testTimerInterval = setInterval(()=>{
+    if(!testState || testState.submitted) return;
+    testState.timeLeft--;
+    updateTimerDisplay();
+    if(testState.timeLeft <= 0){clearInterval(testTimerInterval);testTimerInterval = null;submitTest(true);}
+  }, 1000);
+}
+
+function updateTimerDisplay(){
+  if(!testState) return;
+  const el = document.getElementById('testTimer');
+  const t = Math.max(0, testState.timeLeft);
+  const m = String(Math.floor(t/60)).padStart(2,'0');
+  const s = String(t%60).padStart(2,'0');
+  el.textContent = `${m}:${s}`;
+  el.classList.remove('warning','danger');
+  if(t <= 60) el.classList.add('danger');
+  else if(t <= 300) el.classList.add('warning');
+}
+
+function renderNavGrid(){
+  const grid = document.getElementById('navGrid');
+  grid.innerHTML = '';
+  for(let i=0;i<30;i++){
+    const b = document.createElement('button');
+    b.className = 'nav-cell';
+    b.textContent = i+1;
+    b.onclick = () => { testState.current = i; renderTestQuestion(); renderNavGrid(); };
+    grid.appendChild(b);
+  }
+  updateNavStatus();
+}
+
+function updateNavStatus(){
+  const cells = document.querySelectorAll('#navGrid .nav-cell');
+  cells.forEach((c,i)=>{
+    c.classList.toggle('answered', testState.answers[i] !== null);
+    c.classList.toggle('current', i === testState.current);
+  });
+  const answered = testState.answers.filter(a=>a!==null).length;
+  document.getElementById('testProgress').textContent = `Câu ${testState.current+1} / 30 · Đã trả lời ${answered}/30`;
+}
+
+function renderTestQuestion(){
+  const item = SAT_SETS[testState.setNum].questions[testState.current];
+  document.getElementById('testQNum').textContent = testState.current+1;
+  document.getElementById('testQText').innerHTML = item.q;
+  const optsC = document.getElementById('testOptions');
+  optsC.innerHTML = '';
+  item.opts.forEach((o,i)=>{
+    const b = document.createElement('button');
+    b.className = 'option';
+    if(testState.answers[testState.current] === i) b.classList.add('selected');
+    b.innerHTML = `<span class="letter">${letterMap[i]}</span><span class="opt-text">${o}</span>`;
+    b.onclick = () => selectTestOption(i);
+    optsC.appendChild(b);
+  });
+  document.getElementById('testQuestionCard').classList.remove('correct','wrong');
+  document.getElementById('btnPrev').disabled = testState.current === 0;
+  document.getElementById('btnNext').textContent = testState.current === 29 ? '📝 Nộp bài' : 'Câu tiếp →';
+  if(window.renderMathInElement){renderMathInElement(document.getElementById('testQuestionCard'),{delimiters:[{left:'\\(',right:'\\)',display:false}]});}
+  updateNavStatus();
+}
+
+function selectTestOption(optIdx){
+  if(testState.submitted) return;
+  testState.answers[testState.current] = optIdx;
+  document.querySelectorAll('#testOptions .option').forEach((o,i)=>o.classList.toggle('selected', i === optIdx));
+  updateNavStatus();
+}
+
+function goToQuestion(i){if(i<0||i>29) return;testState.current = i;renderTestQuestion();}
+
+document.getElementById('btnPrev').onclick = ()=>goToQuestion(testState.current-1);
+document.getElementById('btnNext').onclick = ()=>{if(testState.current === 29){submitTest(false);}else{goToQuestion(testState.current+1);}};
+document.getElementById('btnQuitTest').onclick = ()=>{
+  if(confirm('Bạn có chắc muốn thoát? Bài làm sẽ không được lưu.')){
+    if(testTimerInterval) clearInterval(testTimerInterval);
+    testTimerInterval = null; testState = null;
+    const c = document.getElementById('satResultScreen');
+    c.style.display = 'none'; c.innerHTML = '';
+    switchTab('sat');
+    showScreen('selector');
+  }
+};
+document.getElementById('btnSubmitTest').onclick = ()=>submitTest(false);
+
+/* ⭐ FIX: submitTest → mở MODAL thông báo trước (giống web đạo hàm) */
+function submitTest(auto){
+  if(!testState || testState.submitted) return;
+  if(!auto){
+    const unanswered = testState.answers.filter(a=>a===null).length;
+    if(unanswered > 0){
+      if(!confirm(`Bạn còn ${unanswered} câu chưa trả lời. Vẫn nộp bài?`)) return;
+    }else{
+      if(!confirm('Nộp bài và xem kết quả?')) return;
+    }
+  }
+  testState.submitted = true;
+  if(testTimerInterval){clearInterval(testTimerInterval);testTimerInterval = null;}
+  document.getElementById('satTestScreen').style.display = 'none';
+  showResultNotification(auto);
+  playFanfare();
+}
+
+/* ============================================================
+   NOTIFICATION MODAL — Thông báo kết quả ngay sau khi nộp
+============================================================ */
+function showResultNotification(auto){
+  const setNum = testState.setNum;
+  const questions = SAT_SETS[setNum].questions;
+  let correct = 0, wrong = 0, unanswered = 0;
+  const topicStat = {};
+  Object.keys(TOPICS).forEach(k=>topicStat[k]={correct:0,total:0});
+  const wrongList = [];
+
+  questions.forEach((item,i)=>{
+    const ans = testState.answers[i];
+    topicStat[item.topic].total++;
+    if(ans === null){unanswered++; wrongList.push({idx:i,item,yourAns:null});}
+    else if(ans === item.ans){correct++; topicStat[item.topic].correct++;}
+    else{wrong++; wrongList.push({idx:i,item,yourAns:ans});}
+  });
+
+  const total = questions.length;
+  const pct = Math.round(correct/total*100);
+  const icon = pct>=80?'🎉':pct>=60?'📊':'📚';
+  const title = auto ? '⏰ Hết giờ làm bài!' : '✅ Đã nộp bài thành công!';
+
+  const weakTopics = Object.keys(topicStat)
+    .filter(k=>topicStat[k].total>0 && topicStat[k].correct/topicStat[k].total < 0.6)
+    .map(k=>({
+      key:k, name:TOPICS[k],
+      correct:topicStat[k].correct,
+      total:topicStat[k].total,
+      pct:Math.round(topicStat[k].correct/topicStat[k].total*100)
+    }))
+    .sort((a,b)=>a.pct-b.pct);
+
+  const overlay = document.createElement('div');
+  overlay.className = 'notify-overlay';
+  overlay.id = 'notifyOverlay';
+  overlay.innerHTML = `
+    <div class="notify-modal" onclick="event.stopPropagation()">
+      <div class="notify-head">
+        <div class="notify-icon">${icon}</div>
+        <h2>${title}</h2>
+        <p>${SAT_SETS[setNum].name}</p>
+      </div>
+      <div class="notify-body">
+        <div class="notify-score">
+          <div class="big">${correct}/${total}</div>
+          <div class="lbl">Câu đúng · ${pct}%</div>
+        </div>
+        <div class="notify-stat-row">
+          <div class="notify-stat green"><div class="num">${correct}</div><div class="lbl">Đúng</div></div>
+          <div class="notify-stat red"><div class="num">${wrong}</div><div class="lbl">Sai</div></div>
+          <div class="notify-stat"><div class="num">${unanswered}</div><div class="lbl">Bỏ trống</div></div>
+        </div>
+        ${wrongList.length > 0 ? `
+        <div class="notify-section">
+          <h4>❌ Lỗi sai cần chú ý (${wrongList.length} câu)</h4>
+          <ul>
+            ${wrongList.slice(0,5).map(w=>`
+              <li class="err">
+                <strong>Câu ${w.idx+1}</strong> · ${TOPICS[w.item.topic]} — 
+                ${w.yourAns===null
+                  ? '<em>Bạn bỏ trống</em>'
+                  : `Bạn chọn <strong>${letterMap[w.yourAns]}</strong>`}
+                · Đáp án đúng: <strong>${letterMap[w.item.ans]}</strong>
+              </li>
+            `).join('')}
+            ${wrongList.length>5?`<li class="err" style="text-align:center;font-style:italic;background:#fff5f5">… và ${wrongList.length-5} câu khác — xem chi tiết bên dưới</li>`:''}
+          </ul>
+        </div>` : `
+        <div class="notify-section">
+          <h4 style="color:var(--sat-green)">🌟 Tất cả câu đều chính xác!</h4>
+          <ul><li style="border-left-color:var(--sat-green);background:#f0faf1">Không có lỗi sai. Em sẵn sàng cho bộ đề khó hơn!</li></ul>
+        </div>`}
+        ${weakTopics.length > 0 ? `
+        <div class="notify-section">
+          <h4>📖 Kiến thức cần ôn lại ngay</h4>
+          <ul>
+            ${weakTopics.map(t=>`
+              <li>
+                <strong>${t.name}</strong> — ${t.correct}/${t.total} (${t.pct}%)
+                <span class="rec">${TOPIC_RECOMMENDATIONS[t.key]}</span>
+              </li>
+            `).join('')}
+          </ul>
+        </div>` : `
+        <div class="notify-section">
+          <h4 style="color:var(--sat-green)">🎯 Không có chủ đề nào dưới 60%</h4>
+        </div>`}
+      </div>
+      <div class="notify-actions">
+        <button class="btn btn-primary" onclick="closeNotificationAndShowResult()">📋 Xem kết quả chi tiết</button>
+        <button class="btn btn-outline" onclick="closeNotificationAndReview()">📐 Ôn lý thuyết ngay</button>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+  if(window.renderMathInElement){
+    renderMathInElement(overlay,{delimiters:[{left:'\\(',right:'\\)',display:false}]});
+  }
+}
+
+function closeNotificationAndShowResult(){
+  const el = document.getElementById('notifyOverlay');
+  if(el) el.remove();
+  switchTab('sat');
+  showScreen('result');
+  try { renderResult(); }
+  catch(err){
+    console.error('[SAT] renderResult error:', err);
+    const c = document.getElementById('satResultScreen');
+    c.innerHTML = `
+      <div class="card" style="border-left:5px solid #E53935;">
+        <h3>⚠️ Có lỗi xảy ra khi hiển thị kết quả chi tiết</h3>
+        <p>Chi tiết: <code>${err.message}</code></p>
+        <p style="margin-top:8px">Điểm số của bạn đã được ghi nhận. Vui lòng thử lại hoặc chọn bộ khác.</p>
+        <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="restartSameSet()">🔄 Làm lại</button>
+          <button class="btn btn-outline" onclick="backToSetSelector()">📚 Chọn bộ khác</button>
+        </div>
+      </div>`;
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function closeNotificationAndReview(){
+  closeNotificationAndShowResult();
+  setTimeout(()=>switchTab('knowledge'), 150);
+}
+
+/* ============================================================
+   ENHANCED RESULT RENDER
+============================================================ */
+function renderResult(){
+  const c = document.getElementById('satResultScreen');
+  c.style.display = 'block';
+
+  const setNum = testState.setNum;
+  const questions = SAT_SETS[setNum].questions;
+  let correct = 0, wrong = 0, unanswered = 0;
+
+  const topicStat = {};
+  Object.keys(TOPICS).forEach(k=>topicStat[k]={correct:0,total:0});
+
+  const wrongList = [];
+
+  questions.forEach((item,i)=>{
+    const ans = testState.answers[i];
+    topicStat[item.topic].total++;
+    if(ans === null){
+      unanswered++;
+      wrongList.push({idx:i, item, yourAns:null});
+    }else if(ans === item.ans){
+      correct++;
+      topicStat[item.topic].correct++;
+    }else{
+      wrong++;
+      wrongList.push({idx:i, item, yourAns:ans});
+    }
+  });
+
+  const total = questions.length;
+  const pct = Math.round(correct/total*100);
+  const estimatedSAT = Math.min(800, Math.max(200, Math.round(200 + (correct/total)*600)));
+  const timeUsed = TEST_DURATION - testState.timeLeft;
+  const tm = String(Math.floor(timeUsed/60)).padStart(2,'0');
+  const ts = String(timeUsed%60).padStart(2,'0');
+  const answered = correct + wrong;
+  const avgTime = answered > 0 ? Math.round(timeUsed/answered) : 0;
+  const avgTimeStr = `${Math.floor(avgTime/60)}:${String(avgTime%60).padStart(2,'0')}`;
+
+  let level, levelColor, levelIcon, levelDesc, levelAdvice;
+  if(pct >= 90) {
+    level = "XUẤT SẮC"; levelColor = "#4CAF50"; levelIcon = "🏆";
+    levelDesc = "Kiến thức của em rất vững vàng, phản xạ nhanh và chính xác. Em đã sẵn sàng chinh phục điểm cao trong kỳ thi Digital SAT thực tế!";
+    levelAdvice = "Duy trì phong độ bằng cách luyện thêm các bộ đề khó và các dạng bài tổng hợp. Tập trung vào tốc độ và độ chính xác.";
+  } else if(pct >= 75) {
+    level = "TỐT"; levelColor = "#2C5AA0"; levelIcon = "⭐";
+    levelDesc = "Em nắm tốt kiến thức cơ bản và nhiều dạng bài nâng cao. Chỉ còn một vài chủ đề cần tinh chỉnh để đạt điểm tối đa.";
+    levelAdvice = "Tập trung khắc phục các chủ đề dưới 80% để nâng điểm SAT Math ước lượng lên mức 700+. Luyện thêm dạng bài hỗn hợp CSC–CSN.";
+  } else if(pct >= 60) {
+    level = "KHÁ"; levelColor = "#E8A317"; levelIcon = "📈";
+    levelDesc = "Em có nền tảng khá tốt nhưng còn sai sót ở các dạng bài trung bình và nâng cao. Cần luyện tập có hệ thống hơn.";
+    levelAdvice = "Luyện thêm dạng bài tổng hợp và bài toán thực tế. Đặc biệt chú trọng các chủ đề có tỉ lệ đúng dưới 60%.";
+  } else if(pct >= 40) {
+    level = "TRUNG BÌNH"; levelColor = "#FF9800"; levelIcon = "📚";
+    levelDesc = "Em đã có một số kiến thức nền tảng nhưng còn nhiều lỗ hổng. Cần củng cố lý thuyết trước khi luyện nâng cao.";
+    levelAdvice = "Quay lại ôn kỹ mục I, II, III trong phần Kiến thức. Làm lại Nhóm 1 của phần Luyện tập cho đến khi đạt ≥ 80%.";
+  } else {
+    level = "CẦN CỐ GẮNG"; levelColor = "#E53935"; levelIcon = "🔧";
+    levelDesc = "Em cần xây dựng lại nền tảng từ đầu. Đừng nản — hãy bắt đầu từ những dạng bài cơ bản nhất.";
+    levelAdvice = "Đọc kỹ phần Kiến thức, ghi nhớ công thức cốt lõi. Làm chậm và kỹ từng dạng bài ở Nhóm 1 trước khi quay lại bộ đề này.";
+  }
+
+  let timeEval, timeIcon, timeColor;
+  if(timeUsed <= TEST_DURATION * 0.7) {
+    timeEval = "Quản lý thời gian xuất sắc"; timeIcon = "🚀"; timeColor = "#4CAF50";
+  } else if(timeUsed <= TEST_DURATION * 0.9) {
+    timeEval = "Quản lý thời gian tốt"; timeIcon = "⏱️"; timeColor = "#2C5AA0";
+  } else if(timeUsed < TEST_DURATION) {
+    timeEval = "Sát giờ — cần tăng tốc"; timeIcon = "⏰"; timeColor = "#E8A317";
+  } else {
+    timeEval = "Hết giờ"; timeIcon = "🚨"; timeColor = "#E53935";
+  }
+
+  const topicList = Object.keys(topicStat)
+    .filter(k => topicStat[k].total > 0)
+    .map(k => ({
+      key: k,
+      name: TOPICS[k],
+      correct: topicStat[k].correct,
+      total: topicStat[k].total,
+      pct: Math.round(topicStat[k].correct/topicStat[k].total*100)
+    }))
+    .sort((a,b) => a.pct - b.pct);
+
+  const weakTopics = topicList.filter(t => t.pct < 60);
+  const mediumTopics = topicList.filter(t => t.pct >= 60 && t.pct < 80);
+  const strongTopics = topicList.filter(t => t.pct >= 80);
+
+  let roadmapPhases = [];
+
+  if(weakTopics.length > 0){
+    roadmapPhases.push({
+      phase: 1,
+      title: "Củng cố kiến thức nền tảng",
+      time: "1–3 ngày",
+      items: weakTopics.map(t => `<strong>${t.name}</strong> (${t.correct}/${t.total} = ${t.pct}%) — ${TOPIC_RECOMMENDATIONS[t.key]}`),
+      actions: [
+        {text: "📖 Ôn lý thuyết", tab: "knowledge"},
+        {text: "✏️ Luyện nhóm cơ bản", tab: "practice"}
+      ]
+    });
+  }
+
+  if(mediumTopics.length > 0){
+    roadmapPhases.push({
+      phase: 2,
+      title: "Luyện tập nâng cao",
+      time: "3–5 ngày",
+      items: mediumTopics.map(t => `<strong>${t.name}</strong> (${t.correct}/${t.total} = ${t.pct}%) — Cần thêm bài tập ở mức độ trung bình–khó để nâng tỉ lệ đúng lên ≥ 80%.`),
+      actions: [
+        {text: "✏️ Luyện nhóm trung bình", tab: "practice"},
+        {text: "🔄 Làm lại bộ đề này", action: "restart"}
+      ]
+    });
+  }
+
+  roadmapPhases.push({
+    phase: 3,
+    title: strongTopics.length > 0 ? "Duy trì & mở rộng" : "Luyện đề tổng hợp",
+    time: "Liên tục",
+    items: strongTopics.length > 0 
+      ? strongTopics.map(t => `<strong>${t.name}</strong> (${t.correct}/${t.total} = ${t.pct}%) — Duy trì phong độ, thử sức với bài khó hơn để nâng cao tốc độ và độ chính xác.`)
+      : ["Sau khi củng cố nền tảng, hãy luyện các bộ đề khác để làm quen dạng bài đa dạng."],
+    actions: [
+      {text: "📚 Chọn bộ khác", action: "back"},
+      {text: "⏱️ Luyện đề khác", tab: "sat"}
+    ]
+  });
+
+  const wrongByTopic = {};
+  wrongList.forEach(w => {
+    if(!wrongByTopic[w.item.topic]) wrongByTopic[w.item.topic] = [];
+    wrongByTopic[w.item.topic].push(w);
+  });
+  const priorityTopics = Object.entries(wrongByTopic)
+    .map(([key, list]) => ({key, name: TOPICS[key], count: list.length, questionNums: list.map(x => x.idx + 1)}))
+    .sort((a,b) => b.count - a.count);
+
+  c.innerHTML = `
+    <div class="result-hero">
+      <div>
+        <h2>🎉 Hoàn thành ${SAT_SETS[setNum].name}!</h2>
+        <p>Bạn đã làm ${total} câu trong ${tm}:${ts}. ${auto?'⏰ Hết giờ!':''} ${unanswered>0?`Còn ${unanswered} câu chưa trả lời.`:''}</p>
+      </div>
+      <div class="result-score">
+        <div class="num">${correct}</div>
+        <div class="den">/ ${total} câu đúng</div>
+        <div class="pct">${pct}%</div>
+      </div>
+    </div>
+
+    <div class="level-banner" style="border-left-color:${levelColor}">
+      <div class="level-icon" style="background:${levelColor}">${levelIcon}</div>
+      <div class="level-content">
+        <h3 style="color:${levelColor}">Đánh giá năng lực: ${level}</h3>
+        <p>${levelDesc}</p>
+        <div class="level-advice"><strong>💡 Định hướng:</strong> ${levelAdvice}</div>
+      </div>
+    </div>
+
+    <div class="result-stats">
+      <div class="stat-box green">
+        <div class="label">✅ Đúng</div>
+        <div class="value">${correct}</div>
+        <div class="sub">Chiếm ${pct}%</div>
+      </div>
+      <div class="stat-box red">
+        <div class="label">❌ Sai</div>
+        <div class="value">${wrong}</div>
+        <div class="sub">Cần xem lại</div>
+      </div>
+      <div class="stat-box yellow">
+        <div class="label">⚠ Bỏ trống</div>
+        <div class="value">${unanswered}</div>
+        <div class="sub">Chưa trả lời</div>
+      </div>
+      <div class="stat-box">
+        <div class="label">🎯 SAT Math ước lượng</div>
+        <div class="value">${estimatedSAT}</div>
+        <div class="sub">/ 800 điểm</div>
+      </div>
+    </div>
+
+    <div class="result-section-title"><span class="icon">⏱</span> Phân tích thời gian</div>
+    <div class="time-analysis">
+      <div class="time-block">
+        <div class="tb-icon">⏰</div>
+        <div class="tb-content">
+          <div class="tb-label">Tổng thời gian</div>
+          <div class="tb-value">${tm}:${ts}</div>
+          <div class="tb-desc">/ 45:00</div>
+        </div>
+      </div>
+      <div class="time-block">
+        <div class="tb-icon">⚡</div>
+        <div class="tb-content">
+          <div class="tb-label">Trung bình / câu</div>
+          <div class="tb-value">${avgTimeStr}</div>
+          <div class="tb-desc">Mục tiêu: ≤ 1:30</div>
+        </div>
+      </div>
+      <div class="time-block">
+        <div class="tb-icon" style="background:${timeColor}22;color:${timeColor}">${timeIcon}</div>
+        <div class="tb-content">
+          <div class="tb-label">Đánh giá</div>
+          <div class="tb-value" style="color:${timeColor};font-size:15px">${timeEval}</div>
+          <div class="tb-desc">${timeUsed < TEST_DURATION ? `Còn dư ${Math.floor((TEST_DURATION-timeUsed)/60)}:${String((TEST_DURATION-timeUsed)%60).padStart(2,'0')}` : 'Đã dùng hết thời gian'}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-section-title"><span class="icon">📊</span> Phân tích chi tiết theo chủ đề</div>
+    <table class="topic-table">
+      <thead>
+        <tr><th style="width:28%">Chủ đề</th><th style="width:38%">Tỉ lệ đúng</th><th style="width:14%;text-align:right">Số câu</th><th style="width:20%;text-align:center">Trạng thái</th></tr>
+      </thead>
+      <tbody>
+        ${topicList.map(t=>{
+          let cls = '', status = '', statusColor = '';
+          if(t.pct >= 80){ cls=''; status='✅ Vững'; statusColor='#4CAF50'; }
+          else if(t.pct >= 60){ cls='warn'; status='⚠ Cần luyện'; statusColor='#E8A317'; }
+          else { cls='bad'; status='🔴 Yếu'; statusColor='#E53935'; }
+          return `<tr>
+            <td><strong>${t.name}</strong></td>
+            <td>
+              <div class="topic-bar-cell">
+                <div class="topic-bar"><div class="topic-bar-fill ${cls}" style="width:${t.pct}%"></div></div>
+                <span style="min-width:44px;font-weight:700;color:var(--sat-gray)">${t.pct}%</span>
+              </div>
+            </td>
+            <td style="text-align:right"><span class="topic-score">${t.correct}/${t.total}</span></td>
+            <td style="text-align:center"><strong style="color:${statusColor};font-size:13px">${status}</strong></td>
+          </tr>
+          <tr><td colspan="4" style="padding:0 16px 12px;border-bottom:1px solid #eef2f8">
+            <div class="topic-recommend">📌 <strong>Gợi ý:</strong> ${TOPIC_RECOMMENDATIONS[t.key]}</div>
+          </td></tr>`;
+        }).join('')}
+      </tbody>
+    </table>
+
+    <div class="roadmap">
+      <h3>🗺️ Lộ trình ôn tập cá nhân hóa</h3>
+      <p class="roadmap-sub">Dựa trên kết quả của em, đây là lộ trình được thiết kế riêng để khắc phục điểm yếu và phát huy điểm mạnh:</p>
+      ${roadmapPhases.map(p=>`
+        <div class="roadmap-phase phase-${p.phase}">
+          <div class="phase-num">${p.phase}</div>
+          <div class="phase-content">
+            <h4>Giai đoạn ${p.phase}: ${p.title} <span class="phase-time">⏳ ${p.time}</span></h4>
+            <ul>${p.items.map(it=>`<li>${it}</li>`).join('')}</ul>
+            <div class="phase-actions">
+              ${p.actions.map(a=>{
+                if(a.action === 'restart') return `<button class="btn btn-primary btn-sm" onclick="restartSameSet()">${a.text}</button>`;
+                if(a.action === 'back') return `<button class="btn btn-outline btn-sm" onclick="backToSetSelector()">${a.text}</button>`;
+                return `<button class="btn btn-outline btn-sm" onclick="switchTab('${a.tab}')">${a.text}</button>`;
+              }).join('')}
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+
+    ${wrongList.length > 0 ? `
+    <div class="result-section-title"><span class="icon" style="background:#fdeaea;color:var(--sat-red)">🔍</span> Phân tích chi tiết ${wrongList.length} câu sai / bỏ trống</div>
+    ${wrongList.map(w=>{
+      const item = w.item;
+      const cls = w.yourAns === null ? 'unanswered' : '';
+      const yourText = w.yourAns === null ? '— Không trả lời —' : item.opts[w.yourAns];
+      return `<div class="wrong-item ${cls}">
+        <div class="wrong-head">
+          <div class="wrong-num">${w.idx+1}</div>
+          <div class="wrong-q">
+            ${item.q}
+            <div><span class="topic-tag">${TOPICS[item.topic]}</span></div>
+          </div>
+        </div>
+        <div class="ans-row">
+          <div class="ans-box your">
+            <div class="lbl">Bạn chọn</div>
+            <div class="val">${w.yourAns === null ? '—' : letterMap[w.yourAns]+'. '}${yourText}</div>
+          </div>
+          <div class="ans-box correct">
+            <div class="lbl">Đáp án đúng</div>
+            <div class="val">${letterMap[item.ans]}. ${item.opts[item.ans]}</div>
+          </div>
+        </div>
+        <div class="exp-box">
+          <div class="lbl">🧮 Lời giải chi tiết</div>
+          ${item.exp}
+        </div>
+        <div class="review-box">📖 ${item.review}</div>
+      </div>`;
+    }).join('')}` : `
+    <div class="roadmap" style="border-left-color:var(--sat-green)">
+      <h3>🎯 Tất cả câu trả lời đều chính xác!</h3>
+      <p style="font-size:14px;color:var(--sat-gray)">Không có câu nào sai. Em đã sẵn sàng cho các bộ đề khó hơn!</p>
+    </div>`}
+
+    ${priorityTopics.length > 0 ? `
+    <div class="result-section-title"><span class="icon" style="background:#fff3cd;color:#b8860b">🎯</span> Định hướng ôn tập ưu tiên</div>
+    <div class="priority-plan">
+      <div class="priority-intro">
+        <strong>📋 Dựa trên ${wrongList.length} câu bạn đã làm sai hoặc bỏ trống,</strong> đây là các chủ đề cần ưu tiên ôn lại — sắp xếp theo mức độ ảnh hưởng (số câu sai nhiều nhất lên đầu). Hãy làm theo từng bước được gợi ý để khắc phục triệt để.
+      </div>
+      ${priorityTopics.map((pt, idx) => {
+        let priorityLevel = 'low', priorityLabel = '🟢 Cần xem lại';
+        if(pt.count >= 3){ priorityLevel = 'high'; priorityLabel = '🔴 Ưu tiên cao'; }
+        else if(pt.count === 2){ priorityLevel = 'medium'; priorityLabel = '🟡 Ưu tiên trung bình'; }
+        const steps = PRIORITY_STEPS[pt.key] || [];
+        return `
+          <div class="priority-card ${priorityLevel}">
+            <div class="priority-header">
+              <div class="priority-rank">${idx+1}</div>
+              <div class="priority-info">
+                <div class="priority-name">${pt.name}</div>
+                <div class="priority-meta">${pt.count} câu sai · Câu ${pt.questionNums.join(', ')}</div>
+              </div>
+              <div class="priority-badge">${priorityLabel}</div>
+            </div>
+            <div class="priority-recommend">
+              📌 <strong>Trọng tâm ôn:</strong> ${TOPIC_RECOMMENDATIONS[pt.key]}
+            </div>
+            <div style="font-size:14px;font-weight:700;color:var(--sat-blue);margin-bottom:6px">📝 Các bước ôn cụ thể:</div>
+            <ol class="priority-steps">
+              ${steps.map(s => `<li>${s}</li>`).join('')}
+            </ol>
+            <div class="priority-actions">
+              <button class="btn btn-outline btn-sm" onclick="switchTab('knowledge')">📖 Xem lý thuyết</button>
+              <button class="btn btn-outline btn-sm" onclick="switchTab('practice')">✏️ Luyện nhóm phù hợp</button>
+              <button class="btn btn-primary btn-sm" onclick="restartSameSet()">🔄 Luyện lại bộ đề</button>
+            </div>
+          </div>
+        `;
+      }).join('')}
+    </div>
+    ` : ''}
+
+    <div class="result-actions">
+      <button class="btn btn-primary" onclick="restartSameSet()">🔄 Làm lại ${SAT_SETS[setNum].name}</button>
+      <button class="btn btn-outline" onclick="backToSetSelector()">📚 Chọn bộ khác</button>
+      <button class="btn btn-outline" onclick="switchTab('knowledge')">📖 Ôn lại lý thuyết</button>
+      <button class="btn btn-outline" onclick="switchTab('practice')">✏️ Luyện tập thêm</button>
+    </div>
+  `;
+
+  if(window.renderMathInElement){
+    renderMathInElement(c,{delimiters:[{left:'\\(',right:'\\)',display:false}]});
+  }
+}
+
+/* ⭐ FIX: restart/back — CLEAR SẠCH innerHTML + display trước khi chuyển màn */
+function restartSameSet(){
+  if(!testState) return;
+  const setNum = testState.setNum;
+  const c = document.getElementById('satResultScreen');
+  c.style.display = 'none';
+  c.innerHTML = '';
+  const t = document.getElementById('satTestScreen');
+  t.style.display = 'none';
+  switchTab('sat');
+  showScreen('test');
+  startSetTest(setNum);
+}
+
+function backToSetSelector(){
+  const c = document.getElementById('satResultScreen');
+  c.style.display = 'none';
+  c.innerHTML = '';
+  const t = document.getElementById('satTestScreen');
+  t.style.display = 'none';
+  switchTab('sat');
+  showScreen('selector');
+  testState = null;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+renderSatSetSelector();
+
+window.addEventListener('load',()=>{
+  if(window.renderMathInElement){
+    renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]});
+  }
+});
+</script>
+</body>
+</html>
